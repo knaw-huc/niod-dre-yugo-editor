@@ -63,6 +63,6 @@ filter="'select'"
 
 [app.prof.person.list.name]
 xpath="string(//cmd:authorizedFormOfName)"
-label="type"
+label="name"
 sort="true"
 filter="true"
