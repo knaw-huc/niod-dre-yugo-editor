@@ -66,3 +66,17 @@ xpath="string(//cmd:authorizedFormOfName)"
 label="name"
 sort="true"
 filter="true"
+
+# ThesaurusConcepts
+
+[app.prof.concept]
+prof="clarin.eu:cr1:p_1721373443967"
+label_en="concept"
+label_plural_en="concepts"
+title="string(//cmd:preferredTerm)"
+
+[app.prof.concept.list.term]
+xpath="string(//cmd:preferredTerm)"
+label="type"
+sort="true"
+filter="true"

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ComponentSpec isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2" xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+    <Header>
+        <ID>clarin.eu:cr1:p_1721373443955</ID>
+        <Name>CorporateBodiesPersonsFamilies</Name>
+        <Description>Names of Persons, organisations or families</Description>
+        <Status>development</Status>
+    </Header>
+    <Component name="CorporateBodiesPersonsFamilies">
+        <Component name="CorporateBodiesPersonsFamiliesRelationshipArea">
+            <Component name="EventsAccess">
+                <Component name="Relationship">
+                    <Element name="date" ValueScheme="date" cue:uncertainty="yes">
+                        <AutoValue>now</AutoValue>
+                    </Element>
+                </Component>
+            </Component>
+        </Component>
+    </Component>
+</ComponentSpec>

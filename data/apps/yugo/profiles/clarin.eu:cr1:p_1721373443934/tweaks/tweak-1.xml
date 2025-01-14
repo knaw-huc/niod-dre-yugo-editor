@@ -22,7 +22,7 @@
         </Component>
         <Component name="Collection">
             <clariah:label xml:lang="en">level 1</clariah:label>
-            <Component name="`Collection">
+            <Component name="Collection">
                 <Component name="identificationArea">
                     <Documentation>Information about collection/fonds/archive</Documentation>
                     <Element name="referencecode"><!--cues--></Element>
