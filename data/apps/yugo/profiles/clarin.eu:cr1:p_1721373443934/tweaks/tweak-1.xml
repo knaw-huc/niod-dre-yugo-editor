@@ -6,9 +6,7 @@
         <Status>development</Status>
     </Header>
     <Component name="CollectionHoldingInstitutions">
-        <Element name="status">
-            
-        </Element>
+        <Element name="status" cue:class="status" cue:readonly="yes"/>
         <Component name="CollectionHoldingInstitutionsIdentityArea">
             <Element name="identifier"><!--cues--></Element>
             <Element name="typeOfInstitution">
