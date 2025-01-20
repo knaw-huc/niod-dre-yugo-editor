@@ -7,6 +7,16 @@
         <Status>development</Status>
     </Header>
     <Component name="ThesaurusConcepts" ConceptLink="" CardinalityMin="1" CardinalityMax="1">
+        <Element name="status" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+            <ValueScheme>
+                <Vocabulary>
+                    <enumeration>
+                        <item>under construction</item>
+                        <item>publish</item>
+                    </enumeration>
+                </Vocabulary>
+            </ValueScheme>
+        </Element>
         <Component name="ThesaurusConcepts" ComponentRef="clarin.eu:cr1:c_1721373443968" CardinalityMin="1" CardinalityMax="1">
             <Element name="preferredTerm" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
             <Element name="concept" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" Multilingual="true"/>

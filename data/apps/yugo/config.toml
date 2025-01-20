@@ -67,6 +67,12 @@ label="name"
 sort="true"
 filter="true"
 
+[app.prof.person.list.status]
+xpath="string(//cmd:status)"
+label="status"
+sort="true"
+filter="'select'"
+
 # ThesaurusConcepts
 
 [app.prof.concept]
@@ -80,3 +86,9 @@ xpath="string(//cmd:preferredTerm)"
 label="type"
 sort="true"
 filter="true"
+
+[app.prof.concept.list.status]
+xpath="string(//cmd:status)"
+label="status"
+sort="true"
+filter="'select'"

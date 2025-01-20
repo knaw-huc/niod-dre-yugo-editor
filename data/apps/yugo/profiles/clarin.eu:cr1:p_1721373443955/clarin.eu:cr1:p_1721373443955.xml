@@ -8,6 +8,16 @@
     </Header>
     <Component name="CorporateBodiesPersonsFamilies" CardinalityMin="1" CardinalityMax="1">
         <Component name="CorporateBodiesPersonsFamiliesIdentityArea" ComponentRef="clarin.eu:cr1:c_1721373443956" CardinalityMin="1" CardinalityMax="1">
+            <Element name="status" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item>under construction</item>
+                            <item>publish</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>
+            </Element>
             <Element name="typeOfEntity" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                 <Documentation>Type of Entity</Documentation>
                 <ValueScheme>
