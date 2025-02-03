@@ -47,7 +47,7 @@
                 </cmd:SubjectAccess>
                 <cmd:PlacesAccess>
                     <cmd:Relationship>
-                        <cmd:to>/</cmd:to>
+                        <cmd:to/>
                     </cmd:Relationship>
                 </cmd:PlacesAccess>
             </cmd:CorporateBodiesPersonsFamiliesRelationshipArea>

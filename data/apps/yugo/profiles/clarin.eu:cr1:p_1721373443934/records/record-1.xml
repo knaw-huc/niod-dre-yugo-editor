@@ -28,12 +28,9 @@
                     <cmd:otherForm>UN IRMCT</cmd:otherForm>
                 </cmd:Names>
             </cmd:CollectionHoldingInstitutionsIdentityArea>
-            <cmd:CollectionHoldingInstitutionsContactArea>
-            </cmd:CollectionHoldingInstitutionsContactArea>
+            <cmd:CollectionHoldingInstitutionsContactArea/> 
             <cmd:CollectionHoldingInstitutionsDescriptionArea/>
             <cmd:CollectionHoldingInstitutionsControlArea/>
-            <cmd:Level1>
-            </cmd:Level1>
         </cmd:CollectionHoldingInstitutions>
     </cmd:Components>
 </cmd:CMD>
