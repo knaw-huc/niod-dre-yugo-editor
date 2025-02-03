@@ -4,9 +4,9 @@
     CMDVersion="1.1">
     <cmd:Header>
         <cmd:MdCreator>test</cmd:MdCreator>
-        <cmd:MdCreationDate xmlns:clariah="http://www.clariah.eu/" clariah:epoch="1737642992"
-            >2025-01-23</cmd:MdCreationDate>
-        <cmd:MdSelfLink>unl://1</cmd:MdSelfLink>
+        <cmd:MdCreationDate xmlns:clariah="http://www.clariah.eu/" clariah:epoch="1737981822"
+            >2025-01-27</cmd:MdCreationDate>
+        <cmd:MdSelfLink>unl://6</cmd:MdSelfLink>
         <cmd:MdProfile>clarin.eu:cr1:p_1721373443955</cmd:MdProfile>
         <cmd:MdCollectionDisplayName/>
     </cmd:Header>
@@ -20,31 +20,24 @@
         <cmd:CorporateBodiesPersonsFamilies>
             <cmd:status>under construction</cmd:status>
             <cmd:CorporateBodiesPersonsFamiliesIdentityArea>
-                <cmd:typeOfPersonality>Person</cmd:typeOfPersonality>
-                <cmd:authorizedFormOfName>John Doo</cmd:authorizedFormOfName>
-                <cmd:parallelFormsOfName>Johnny Doo</cmd:parallelFormsOfName>
+                <cmd:typeOfPersonality>Corporate Body</cmd:typeOfPersonality>
+                <cmd:authorizedFormOfName>Ovčara</cmd:authorizedFormOfName>
+                <cmd:parallelFormsOfName>Ovčara farm</cmd:parallelFormsOfName>
             </cmd:CorporateBodiesPersonsFamiliesIdentityArea>
             <cmd:CorporateBodiesPersonsFamiliesDescriptionArea>
-                <cmd:datesOfExistence>01/01/2000 -  ..</cmd:datesOfExistence>
-                <cmd:history xml:lang="en">Johny doe was ..... .</cmd:history>
-                <cmd:nationality xml:lang="en">English</cmd:nationality>
+                <cmd:history xml:lang="en">The Ovčara farm was an agricultural complex in the vicinity of Vukovar, Croatia. Following the fall of Vukovar to the Serb forces, in November 1991, the farm was briefly used as a detention facilty for more than 200 people captured in the Vukovar Hospital. Following their detention at the farm, most of the detained people were killed in the night between 20 and 21 November in the area of Grabovo, near the farm. </cmd:history>
+                <!--<cmd:places xml:lang="en">Croatia; Vukovar; </cmd:places>-->
             </cmd:CorporateBodiesPersonsFamiliesDescriptionArea>
             <cmd:CorporateBodiesPersonsFamiliesRelationshipArea>
                 <cmd:EventsAccess>
                     <cmd:Relationship>
-                        <cmd:to>Srebrenica Genocide</cmd:to>
-                        <cmd:date>2025-01-23Z</cmd:date>
+                        <cmd:to/>
+                        <cmd:date>2025-01-27Z</cmd:date>
                     </cmd:Relationship>
                 </cmd:EventsAccess>
-                <cmd:PersonalitiesAccess>
-                    <cmd:Relationship>
-                        <cmd:to/>
-                    </cmd:Relationship>
-                </cmd:PersonalitiesAccess>
                 <cmd:CollectionAccess>
                     <cmd:Relationship>
-                        <cmd:to>ICTY inv. no. x</cmd:to>
-                        <cmd:category>Appears in</cmd:category>
+                        <cmd:to/>
                     </cmd:Relationship>
                 </cmd:CollectionAccess>
                 <cmd:SubjectAccess>
@@ -52,11 +45,13 @@
                         <cmd:to/>
                     </cmd:Relationship>
                 </cmd:SubjectAccess>
+                <cmd:PlacesAccess>
+                    <cmd:Relationship>
+                        <cmd:to>/</cmd:to>
+                    </cmd:Relationship>
+                </cmd:PlacesAccess>
             </cmd:CorporateBodiesPersonsFamiliesRelationshipArea>
-            <cmd:CorporateBodiesPersonsFamiliesControlArea>
-                <cmd:uniqueAuthorityRecordIdentifier>JD001</cmd:uniqueAuthorityRecordIdentifier>
-                <cmd:rulesAndOrConventions xml:lang="en">ISAAR(CPF)</cmd:rulesAndOrConventions>
-            </cmd:CorporateBodiesPersonsFamiliesControlArea>
+            <cmd:CorporateBodiesPersonsFamiliesControlArea/>
         </cmd:CorporateBodiesPersonsFamilies>
     </cmd:Components>
 </cmd:CMD>

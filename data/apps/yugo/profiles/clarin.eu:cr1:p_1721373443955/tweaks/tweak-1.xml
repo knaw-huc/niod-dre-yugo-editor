@@ -14,7 +14,7 @@
                     <Element name="date" ValueScheme="date" cue:uncertainty="yes">
                         <AutoValue>now</AutoValue>
                     </Element>
-                    <Element name="category">
+                    <Element name="category" cue:class="skosType">
                         <clariah:autoCompleteURI>/proxy/skosmos/sd/unbist</clariah:autoCompleteURI>
                     </Element>
                 </Component>
