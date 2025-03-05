@@ -6,6 +6,9 @@ lang.def="en"
 lang.all.i1="en"
 lang.all.i2="fr"
 lang.all.i3="bos"
+lang.all.i4="hrv"
+lang.all.i5="srp"
+cmdi_version="1.2"
 
 [app.access]
 users="./htp"
@@ -17,35 +20,45 @@ style="yugo.css"
 
 # CollectionHoldingInstitutions
 
-[app.prof.collection]
+[app.prof.institution]
 prof="clarin.eu:cr1:p_1721373443934"
-label_en="collection"
-label_plural_en="collections"
+label_en="collection holding institution"
+label_plural_en="collection holding institutions"
 title="string(//cmd:authorisedForm)"
+id ="/cmd:CMD/cmd:Components/cmdp:CollectionHoldingInstitutions/cmdp:CollectionHoldingInstitutionsIdentityArea/cmdp:DREidentifier"
 
-[app.prof.collection.list.identifier]
-xpath="string(//cmd:identifier)"
+[app.prof.institution.list.identifier]
+xpath="string(/cmd:CMD/cmd:Components/cmdp:CollectionHoldingInstitutions/cmdp:CollectionHoldingInstitutionsIdentityArea/cmdp:DREidentifier)"
 label="identifier"
 sort="true"
 filter="true"
 
-[app.prof.collection.list.name]
-xpath="string(//cmd:authorisedForm)"
+[app.prof.institution.list.name]
+xpath="string(//cmdp:authorisedForm)"
 label="authorised form"
 sort="true"
 filter="true"
 
-[app.prof.collection.list.type]
-xpath="string(//cmd:typeOfInstitution)"
+[app.prof.institution.list.type]
+xpath="string(//cmdp:typeOfInstitution)"
 label="type"
 sort="true"
 filter="'select'"
 
-[app.prof.collection.list.status]
-xpath="string(//cmd:status)"
+[app.prof.institution.list.status]
+xpath="string(//cmdp:status)"
 label="status"
 sort="true"
 filter="'select'"
+
+# Collection
+
+[app.prof.institution.collection]
+label_en="collection"
+label_plural_en="collections"
+entity="//cmdp:Collection"
+title="(.//cmdp:identificationArea/cmdp:titles/cmdp:AuthorizedFormOfTitle/string())[1]"
+id =".//cmdp:identificationArea/cmdp:referencecode/string()"
 
 # CorporateBodiesPersonsFamilies
 
@@ -53,16 +66,16 @@ filter="'select'"
 prof="clarin.eu:cr1:p_1721373443955"
 label_en="person"
 label_plural_en="persons"
-title="string(//cmd:authorizedFormOfName)"
+title="string(//cmdp:authorizedFormOfName)"
 
 [app.prof.person.list.type]
-xpath="string(//cmd:typeOfPersonality)"
+xpath="string(//cmdp:typeOfPersonality)"
 label="type"
 sort="true"
 filter="'select'"
 
 [app.prof.person.list.name]
-xpath="string(//cmd:authorizedFormOfName)"
+xpath="string(//cmdp:authorizedFormOfName)"
 label="name"
 sort="true"
 filter="true"
@@ -79,16 +92,38 @@ filter="'select'"
 prof="clarin.eu:cr1:p_1721373443967"
 label_en="concept"
 label_plural_en="concepts"
-title="string(//cmd:preferredTerm)"
+title="string(//cmdp:preferredTerm)"
 
 [app.prof.concept.list.term]
-xpath="string(//cmd:preferredTerm)"
+xpath="string(//cmdp:preferredTerm)"
 label="type"
 sort="true"
 filter="true"
 
 [app.prof.concept.list.status]
-xpath="string(//cmd:status)"
+xpath="string(//cmdp:status)"
 label="status"
 sort="true"
 filter="'select'"
+
+# Events
+
+[app.prof.event]
+prof="clarin.eu:cr1:p_1733830015132"
+label_en="event"
+label_plural_en="events"
+title="string(//cmdp:authorizedFormOfName)"
+
+[app.prof.event.list.event]
+xpath="string(//cmdp:authorizedFormOfName)"
+label="event"
+sort="true"
+filter="true"
+
+[app.prof.event.list.status]
+xpath="string(//cmdp:status)"
+label="status"
+sort="true"
+filter="'select'"
+
+
