@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ComponentSpec isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2" xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Header>
+        <ID>clarin.eu:cr1:p_1733830015132</ID>
+        <Name>Events</Name>
+        <Description>Events</Description>
+        <Status>development</Status>
+        <DerivedFrom>clarin.eu:cr1:p_1733830015131</DerivedFrom>
+    </Header>
+    <Component name="Events" CardinalityMin="1" CardinalityMax="1">
+        <Component name="EventsIdentityArea" ComponentRef="clarin.eu:cr1:c_1733830015133" CardinalityMin="1" CardinalityMax="1">
+            <Element name="TypeOfEvent" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>TypeOfEvent</Documentation>
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item AppInfo="Armed Conflict">Armed Conflict</item>
+                            <item AppInfo="Siege">Siege</item>
+                            <item AppInfo="Mass Killing">Mass Killing</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>
+            </Element>
+            <Element name="AuthorizedFormOfName" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>AuthorizedFormOfName</Documentation>
+            </Element>
+            <Element name="ParallelFormsOfName" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>ParallelFormsOfName</Documentation>
+            </Element>
+            <Element name="otherFormsOfName" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>otherFormsOfName</Documentation>
+            </Element>
+        </Component>
+        <Component name="eventsDescriptionArea" ComponentRef="clarin.eu:cr1:c_1733830015134" CardinalityMin="1" CardinalityMax="1">
+            <Element name="Date" ValueScheme="date" CardinalityMin="1" CardinalityMax="7"/>
+            <Element name="history" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>history</Documentation>
+            </Element>
+        </Component>
+        <Component name="eventsControlArea" ComponentRef="clarin.eu:cr1:c_1733830015135" CardinalityMin="1" CardinalityMax="1">
+            <Element name="authorityRecordIdentifier" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>authorityRecordIdentifier</Documentation>
+            </Element>
+            <Element name="institutionIdentifier" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>institutionIdentifier</Documentation>
+            </Element>
+            <Element name="sources" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded">
+                <Documentation>sources</Documentation>
+            </Element>
+            <Element name="rulesOrConventions" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>rulesOrConventions</Documentation>
+            </Element>
+            <Element name="datesOfCreationRevisionOrDeletion" ValueScheme="date" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>datesOfCreationRevisionOrDeletion</Documentation>
+            </Element>
+            <Element name="maintenanceNotes" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>maintenanceNotes</Documentation>
+            </Element>
+        </Component>
+        <Component name="eventsRelationArea" CardinalityMin="0" CardinalityMax="1">
+            <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="1" CardinalityMax="1">
+                <Element name="to" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
+                <Element name="category" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
+                <Element name="description" ValueScheme="string" CardinalityMin="0" CardinalityMax="1"/>
+                <Element name="date" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
+            </Component>
+        </Component>
+    </Component>
+</ComponentSpec>

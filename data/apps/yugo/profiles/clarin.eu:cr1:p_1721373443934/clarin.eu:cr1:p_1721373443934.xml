@@ -35,9 +35,9 @@
                 </ValueScheme>
             </Element>
             <Component name="Names" CardinalityMin="1" CardinalityMax="1">
-                <Element name="authorisedForm" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
-                <Element name="parallelForm" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
-                <Element name="otherForm" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
+                <Element name="authorisedForm" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
+                <Element name="parallelForm" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" Multilingual="true"/>
+                <Element name="otherForm" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" Multilingual="true"/>
             </Component>
         </Component>
         <Component name="CollectionHoldingInstitutionsContactArea" ComponentRef="clarin.eu:cr1:c_1721373443951" CardinalityMin="1" CardinalityMax="1">
@@ -138,8 +138,8 @@
                 <Documentation>maintenanceNotes</Documentation>
             </Element>
         </Component>
-        <Component name="Level1" CardinalityMin="0" CardinalityMax="1">
-            <Component name="Collection" ComponentRef="clarin.eu:cr1:c_1721373443947" CardinalityMin="0" CardinalityMax="unbounded">
+        <Component name="Level1" CardinalityMin="1" CardinalityMax="unbounded">
+            <Component name="Collection" ComponentRef="clarin.eu:cr1:c_1721373443947" CardinalityMin="1" CardinalityMax="unbounded">
                 <Component name="identificationArea" CardinalityMin="1" CardinalityMax="1">
                     <Documentation>Information about collection/fonds/archive</Documentation>
                     <Element name="referencecode" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
@@ -206,7 +206,7 @@
                         <Documentation>info</Documentation>
                     </Element>
                 </Component>
-                <Component name="conditionsOfAccessAndUseArea" CardinalityMin="0" CardinalityMax="1">
+                <Component name="conditionsOfAccessAndUseArea" CardinalityMin="1" CardinalityMax="1">
                     <Documentation>conditions of access and use area</Documentation>
                     <Element name="conditionsGoverningAccess" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                         <Documentation>Conditions governing access</Documentation>
@@ -214,8 +214,11 @@
                     <Element name="conditionsGoverningReproduction" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                         <Documentation>Conditions Governing Reproduction</Documentation>
                     </Element>
-                    <Element name="languageOrScriptsOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
-                        <Documentation>Language or scripts of material</Documentation>
+                    <Element name="languageOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                        <Documentation>Language of material</Documentation>
+                    </Element>
+                    <Element name="scriptOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded">
+                        <Documentation>Script Of Material</Documentation>
                     </Element>
                     <Element name="physicalCharacteristicsAndTechnicalRequirements" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true">
                         <Documentation>Phyical Characteristics</Documentation>
@@ -224,7 +227,7 @@
                         <Documentation>Finding Aids</Documentation>
                     </Element>
                 </Component>
-                <Component name="alliedMaterialsArea" CardinalityMin="0" CardinalityMax="1">
+                <Component name="alliedMaterialsArea" CardinalityMin="1" CardinalityMax="1">
                     <Documentation>Allied Materials Area</Documentation>
                     <Element name="existenceAndLocationOfOriginals" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                         <Documentation>Existence And Location Of Originals</Documentation>
@@ -239,13 +242,13 @@
                         <Documentation>Pulication Note</Documentation>
                     </Element>
                 </Component>
-                <Component name="notes" CardinalityMin="0" CardinalityMax="1">
+                <Component name="notes" CardinalityMin="1" CardinalityMax="1">
                     <Documentation>Notes</Documentation>
                     <Element name="note" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                         <Documentation>Note</Documentation>
                     </Element>
                 </Component>
-                <Component name="descriptionControlArea" CardinalityMin="0" CardinalityMax="unbounded">
+                <Component name="descriptionControlArea" CardinalityMin="1" CardinalityMax="1">
                     <Documentation>Description Control Area</Documentation>
                     <Element name="descriptionIdentifierDRE" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                         <Documentation>Description Identifier DRE</Documentation>
@@ -272,14 +275,14 @@
                         <Documentation>Date or dates of description</Documentation>
                     </Element>
                 </Component>
-                <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="1" CardinalityMax="1">
+                <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="0" CardinalityMax="unbounded">
                     <Element name="to" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
                     <Element name="category" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
                     <Element name="description" ValueScheme="string" CardinalityMin="0" CardinalityMax="1"/>
                     <Element name="date" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
                 </Component>
             </Component>
-            <Component name="Level2" CardinalityMin="0" CardinalityMax="1">
+            <Component name="Level2" CardinalityMin="0" CardinalityMax="unbounded">
                 <Component name="Collection" ComponentRef="clarin.eu:cr1:c_1721373443947" CardinalityMin="0" CardinalityMax="unbounded">
                     <Component name="identificationArea" CardinalityMin="1" CardinalityMax="1">
                         <Documentation>Information about collection/fonds/archive</Documentation>
@@ -347,7 +350,7 @@
                             <Documentation>info</Documentation>
                         </Element>
                     </Component>
-                    <Component name="conditionsOfAccessAndUseArea" CardinalityMin="0" CardinalityMax="1">
+                    <Component name="conditionsOfAccessAndUseArea" CardinalityMin="1" CardinalityMax="1">
                         <Documentation>conditions of access and use area</Documentation>
                         <Element name="conditionsGoverningAccess" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                             <Documentation>Conditions governing access</Documentation>
@@ -355,8 +358,11 @@
                         <Element name="conditionsGoverningReproduction" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                             <Documentation>Conditions Governing Reproduction</Documentation>
                         </Element>
-                        <Element name="languageOrScriptsOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
-                            <Documentation>Language or scripts of material</Documentation>
+                        <Element name="languageOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                            <Documentation>Language of material</Documentation>
+                        </Element>
+                        <Element name="scriptOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded">
+                            <Documentation>Script Of Material</Documentation>
                         </Element>
                         <Element name="physicalCharacteristicsAndTechnicalRequirements" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true">
                             <Documentation>Phyical Characteristics</Documentation>
@@ -365,7 +371,7 @@
                             <Documentation>Finding Aids</Documentation>
                         </Element>
                     </Component>
-                    <Component name="alliedMaterialsArea" CardinalityMin="0" CardinalityMax="1">
+                    <Component name="alliedMaterialsArea" CardinalityMin="1" CardinalityMax="1">
                         <Documentation>Allied Materials Area</Documentation>
                         <Element name="existenceAndLocationOfOriginals" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                             <Documentation>Existence And Location Of Originals</Documentation>
@@ -380,13 +386,13 @@
                             <Documentation>Pulication Note</Documentation>
                         </Element>
                     </Component>
-                    <Component name="notes" CardinalityMin="0" CardinalityMax="1">
+                    <Component name="notes" CardinalityMin="1" CardinalityMax="1">
                         <Documentation>Notes</Documentation>
                         <Element name="note" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                             <Documentation>Note</Documentation>
                         </Element>
                     </Component>
-                    <Component name="descriptionControlArea" CardinalityMin="0" CardinalityMax="unbounded">
+                    <Component name="descriptionControlArea" CardinalityMin="1" CardinalityMax="1">
                         <Documentation>Description Control Area</Documentation>
                         <Element name="descriptionIdentifierDRE" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                             <Documentation>Description Identifier DRE</Documentation>
@@ -413,14 +419,14 @@
                             <Documentation>Date or dates of description</Documentation>
                         </Element>
                     </Component>
-                    <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="1" CardinalityMax="1">
+                    <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="0" CardinalityMax="unbounded">
                         <Element name="to" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
                         <Element name="category" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
                         <Element name="description" ValueScheme="string" CardinalityMin="0" CardinalityMax="1"/>
                         <Element name="date" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
                     </Component>
                 </Component>
-                <Component name="Level3" CardinalityMin="0" CardinalityMax="1">
+                <Component name="Level3" CardinalityMin="0" CardinalityMax="unbounded">
                     <Component name="Collection" ComponentRef="clarin.eu:cr1:c_1721373443947" CardinalityMin="0" CardinalityMax="unbounded">
                         <Component name="identificationArea" CardinalityMin="1" CardinalityMax="1">
                             <Documentation>Information about collection/fonds/archive</Documentation>
@@ -488,7 +494,7 @@
                                 <Documentation>info</Documentation>
                             </Element>
                         </Component>
-                        <Component name="conditionsOfAccessAndUseArea" CardinalityMin="0" CardinalityMax="1">
+                        <Component name="conditionsOfAccessAndUseArea" CardinalityMin="1" CardinalityMax="1">
                             <Documentation>conditions of access and use area</Documentation>
                             <Element name="conditionsGoverningAccess" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                                 <Documentation>Conditions governing access</Documentation>
@@ -496,8 +502,11 @@
                             <Element name="conditionsGoverningReproduction" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                                 <Documentation>Conditions Governing Reproduction</Documentation>
                             </Element>
-                            <Element name="languageOrScriptsOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
-                                <Documentation>Language or scripts of material</Documentation>
+                            <Element name="languageOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                                <Documentation>Language of material</Documentation>
+                            </Element>
+                            <Element name="scriptOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded">
+                                <Documentation>Script Of Material</Documentation>
                             </Element>
                             <Element name="physicalCharacteristicsAndTechnicalRequirements" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true">
                                 <Documentation>Phyical Characteristics</Documentation>
@@ -506,7 +515,7 @@
                                 <Documentation>Finding Aids</Documentation>
                             </Element>
                         </Component>
-                        <Component name="alliedMaterialsArea" CardinalityMin="0" CardinalityMax="1">
+                        <Component name="alliedMaterialsArea" CardinalityMin="1" CardinalityMax="1">
                             <Documentation>Allied Materials Area</Documentation>
                             <Element name="existenceAndLocationOfOriginals" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                                 <Documentation>Existence And Location Of Originals</Documentation>
@@ -521,13 +530,13 @@
                                 <Documentation>Pulication Note</Documentation>
                             </Element>
                         </Component>
-                        <Component name="notes" CardinalityMin="0" CardinalityMax="1">
+                        <Component name="notes" CardinalityMin="1" CardinalityMax="1">
                             <Documentation>Notes</Documentation>
                             <Element name="note" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                                 <Documentation>Note</Documentation>
                             </Element>
                         </Component>
-                        <Component name="descriptionControlArea" CardinalityMin="0" CardinalityMax="unbounded">
+                        <Component name="descriptionControlArea" CardinalityMin="1" CardinalityMax="1">
                             <Documentation>Description Control Area</Documentation>
                             <Element name="descriptionIdentifierDRE" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                                 <Documentation>Description Identifier DRE</Documentation>
@@ -554,14 +563,14 @@
                                 <Documentation>Date or dates of description</Documentation>
                             </Element>
                         </Component>
-                        <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="1" CardinalityMax="1">
+                        <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="0" CardinalityMax="unbounded">
                             <Element name="to" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
                             <Element name="category" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
                             <Element name="description" ValueScheme="string" CardinalityMin="0" CardinalityMax="1"/>
                             <Element name="date" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
                         </Component>
                     </Component>
-                    <Component name="Level4" CardinalityMin="0" CardinalityMax="1">
+                    <Component name="Level4" CardinalityMin="0" CardinalityMax="unbounded">
                         <Component name="Collection" ComponentRef="clarin.eu:cr1:c_1721373443947" CardinalityMin="0" CardinalityMax="unbounded">
                             <Component name="identificationArea" CardinalityMin="1" CardinalityMax="1">
                                 <Documentation>Information about collection/fonds/archive</Documentation>
@@ -629,7 +638,7 @@
                                     <Documentation>info</Documentation>
                                 </Element>
                             </Component>
-                            <Component name="conditionsOfAccessAndUseArea" CardinalityMin="0" CardinalityMax="1">
+                            <Component name="conditionsOfAccessAndUseArea" CardinalityMin="1" CardinalityMax="1">
                                 <Documentation>conditions of access and use area</Documentation>
                                 <Element name="conditionsGoverningAccess" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                                     <Documentation>Conditions governing access</Documentation>
@@ -637,8 +646,11 @@
                                 <Element name="conditionsGoverningReproduction" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                                     <Documentation>Conditions Governing Reproduction</Documentation>
                                 </Element>
-                                <Element name="languageOrScriptsOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
-                                    <Documentation>Language or scripts of material</Documentation>
+                                <Element name="languageOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                                    <Documentation>Language of material</Documentation>
+                                </Element>
+                                <Element name="scriptOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded">
+                                    <Documentation>Script Of Material</Documentation>
                                 </Element>
                                 <Element name="physicalCharacteristicsAndTechnicalRequirements" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true">
                                     <Documentation>Phyical Characteristics</Documentation>
@@ -647,7 +659,7 @@
                                     <Documentation>Finding Aids</Documentation>
                                 </Element>
                             </Component>
-                            <Component name="alliedMaterialsArea" CardinalityMin="0" CardinalityMax="1">
+                            <Component name="alliedMaterialsArea" CardinalityMin="1" CardinalityMax="1">
                                 <Documentation>Allied Materials Area</Documentation>
                                 <Element name="existenceAndLocationOfOriginals" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                                     <Documentation>Existence And Location Of Originals</Documentation>
@@ -662,13 +674,13 @@
                                     <Documentation>Pulication Note</Documentation>
                                 </Element>
                             </Component>
-                            <Component name="notes" CardinalityMin="0" CardinalityMax="1">
+                            <Component name="notes" CardinalityMin="1" CardinalityMax="1">
                                 <Documentation>Notes</Documentation>
                                 <Element name="note" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                                     <Documentation>Note</Documentation>
                                 </Element>
                             </Component>
-                            <Component name="descriptionControlArea" CardinalityMin="0" CardinalityMax="unbounded">
+                            <Component name="descriptionControlArea" CardinalityMin="1" CardinalityMax="1">
                                 <Documentation>Description Control Area</Documentation>
                                 <Element name="descriptionIdentifierDRE" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                                     <Documentation>Description Identifier DRE</Documentation>
@@ -695,7 +707,7 @@
                                     <Documentation>Date or dates of description</Documentation>
                                 </Element>
                             </Component>
-                            <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="1" CardinalityMax="1">
+                            <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="0" CardinalityMax="unbounded">
                                 <Element name="to" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
                                 <Element name="category" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
                                 <Element name="description" ValueScheme="string" CardinalityMin="0" CardinalityMax="1"/>

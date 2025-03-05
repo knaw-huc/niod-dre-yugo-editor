@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ComponentSpec isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2" xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cue="http://www.clarin.eu/cmd/cues/1" xmlns:clariah="http://www.clariah.eu/">
+<ComponentSpec isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2"
+    xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cue="http://www.clarin.eu/cmd/cues/1" xmlns:clariah="http://www.clariah.eu/">
     <Header>
         <ID>clarin.eu:cr1:p_1721373443955</ID>
         <Name>CorporateBodiesPersonsFamilies</Name>
@@ -18,6 +21,30 @@
                         <clariah:autoCompleteURI>/proxy/skosmos/sd/unbist</clariah:autoCompleteURI>
                     </Element>
                 </Component>
+            </Component>
+            <Component name="PersonalitiesAccess">
+                <Component name="Relationship">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443955/entity/person</clariah:autoCompleteURI>
+                    </Element>
+                </Component>
+            </Component>
+            <Component name="CollectionAccess">
+                <Component name="Relationship">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443934/entity/collection</clariah:autoCompleteURI>
+                    </Element>
+                </Component>
+            </Component>
+            <Component name="SubjectAccess">
+                <Component name="Relationship">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443967/entity/concept</clariah:autoCompleteURI>
+                    </Element>
+                </Component>
+            </Component>
+            <Component name="placesAccess" CardinalityMin="0" CardinalityMax="1">
+                <Documentation>placesAccess</Documentation>
             </Component>
         </Component>
     </Component>
