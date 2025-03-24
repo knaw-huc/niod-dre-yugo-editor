@@ -57,8 +57,8 @@ filter="'select'"
 label_en="collection"
 label_plural_en="collections"
 entity="//cmdp:Collection"
-title="(.//cmdp:identificationArea/cmdp:titles/cmdp:AuthorizedFormOfTitle/string())[1]"
-id =".//cmdp:identificationArea/cmdp:referencecode/string()"
+title="(./cmdp:identificationArea/cmdp:titles/cmdp:AuthorizedFormOfTitle/string())[1]"
+id ="./cmdp:identificationArea/cmdp:referencecode/string()"
 
 # CorporateBodiesPersonsFamilies
 
@@ -112,10 +112,10 @@ filter="'select'"
 prof="clarin.eu:cr1:p_1733830015132"
 label_en="event"
 label_plural_en="events"
-title="string(//cmdp:authorizedFormOfName)"
+title="string(//cmdp:AuthorizedFormOfName)"
 
 [app.prof.event.list.event]
-xpath="string(//cmdp:authorizedFormOfName)"
+xpath="string(//cmdp:AuthorizedFormOfName)"
 label="event"
 sort="true"
 filter="true"
