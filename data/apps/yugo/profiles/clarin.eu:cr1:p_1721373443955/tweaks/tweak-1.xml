@@ -18,7 +18,7 @@
                         <AutoValue>now</AutoValue>
                     </Element>
                     <Element name="to" cue:class="skosType">
-                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443955/entity/event</clariah:autoCompleteURI>
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1733830015132/entity/event</clariah:autoCompleteURI>
                     </Element>
                     <Element name="category" cue:class="skosType">
                         <clariah:autoCompleteURI>/proxy/skosmos/sd/unbist</clariah:autoCompleteURI>
