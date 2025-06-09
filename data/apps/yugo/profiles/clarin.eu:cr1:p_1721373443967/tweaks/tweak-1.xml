@@ -1,12 +1,39 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ComponentSpec isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2" xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+<?xml version="1.0" encoding="UTF-8"?><ComponentSpec xmlns:clariah="http://www.clariah.eu/" xmlns:cue="http://www.clarin.eu/cmd/cues/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2" xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd">
     <Header>
         <ID>clarin.eu:cr1:p_1721373443967</ID>
-        <Name>ThesaurusConcepts</Name>
+        <Name>ThesaurusConcept</Name>
         <Description>Thesaurus Concepts</Description>
         <Status>development</Status>
     </Header>
-    <Component name="ThesaurusConcepts" ConceptLink="" CardinalityMin="1" CardinalityMax="1">
-        <Element name="status" cue:class="status" cue:readonly="yes"/>
+    <Component name="ThesaurusConcept">
+        <Element name="status" cue:class="status" cue:readonly="yes">
+            
+        </Element>
+        <Element name="preferredTerm"><!--cues--></Element>
+        <Element name="concept"><!--cues--></Element>
+        <Element name="uri"><!--cues--></Element>
+        <Element name="definition" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+        <Element name="scopeNote" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+        <Element name="broaderConcept">
+            <Documentation>should be relation</Documentation>
+        </Element>
+        <Element name="narrowerConcept">
+            <Documentation>should be relation</Documentation>
+        </Element>
+        <Element name="relatedConcept">
+            <Documentation>should be relation</Documentation>
+        </Element>
+        <Element name="alternativeLabel"><!--cues--></Element>
+        <Element name="editorialNote" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+        <Component name="collectionAccess">
+            <Component name="Relationship">
+                <Element name="to" cue:class="skosType">
+                    <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443934/entity/collection</clariah:autoCompleteURI>
+                </Element>
+                <Element name="category"><!--cues--></Element>
+                <Element name="description"><!--cues--></Element>
+                <Element name="date"><!--cues--></Element>
+            </Component>
+        </Component>
     </Component>
 </ComponentSpec>

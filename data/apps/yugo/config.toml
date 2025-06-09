@@ -25,13 +25,7 @@ prof="clarin.eu:cr1:p_1721373443934"
 label_en="collection holding institution"
 label_plural_en="collection holding institutions"
 title="string(//cmd:authorisedForm)"
-id ="/cmd:CMD/cmd:Components/cmdp:CollectionHoldingInstitutions/cmdp:CollectionHoldingInstitutionsIdentityArea/cmdp:DREidentifier"
-
-[app.prof.institution.list.identifier]
-xpath="string(/cmd:CMD/cmd:Components/cmdp:CollectionHoldingInstitutions/cmdp:CollectionHoldingInstitutionsIdentityArea/cmdp:DREidentifier)"
-label="identifier"
-sort="true"
-filter="true"
+id ="/cmd:CMD/cmd:Components/cmdp:CollectionHoldingInstitution/cmdp:CollectionHoldingInstitutionIdentityArea/cmdp:DREidentifier"
 
 [app.prof.institution.list.name]
 xpath="string(//cmdp:authorisedForm)"
@@ -53,20 +47,59 @@ filter="'select'"
 
 # Collection
 
-[app.prof.institution.collection]
+[app.prof.collection]
+prof="clarin.eu:cr1:p_1747312582429"
 label_en="collection"
 label_plural_en="collections"
 entity="//cmdp:Collection"
 title="(./cmdp:identificationArea/cmdp:titles/cmdp:AuthorizedFormOfTitle/string())[1]"
-id ="./cmdp:identificationArea/cmdp:referencecode/string()"
+
+[app.prof.collection.list.name]
+xpath="string(//cmdp:AuthorizedFormOfTitle)"
+label="authorised form"
+sort="true"
+filter="true"
+
+[app.prof.collection.list.status]
+xpath="string(//cmdp:status)"
+label="status"
+sort="true"
+filter="'select'"
+
+# Places
+
+[app.prof.place]
+prof="clarin.eu:cr1:p_1744616237113"
+label_en="place"
+label_plural_en="places"
+title="string(//cmdp:dreAuthorizedFormOfName)"
+
+[app.prof.place.list.name]
+xpath="string(//cmdp:dreAuthorizedFormOfName)"
+label="authorised form"
+sort="true"
+filter="true"
+
+[app.prof.place.list.status]
+xpath="string(//cmdp:status)"
+label="status"
+sort="true"
+filter="'select'"
 
 # CorporateBodiesPersonsFamilies
 
 [app.prof.person]
 prof="clarin.eu:cr1:p_1721373443955"
-label_en="person"
-label_plural_en="persons"
+label_en="personality"
+label_plural_en="personalities"
 title="string(//cmdp:authorizedFormOfName)"
+#html="person-toHTML.xsl"
+
+[app.prof.person.list.name]
+xpath="string(//cmdp:authorizedFormOfName)"
+label="authorised form"
+sort="true"
+filter="true"
 
 [app.prof.person.list.type]
 xpath="string(//cmdp:typeOfPersonality)"
@@ -74,33 +107,7 @@ label="type"
 sort="true"
 filter="'select'"
 
-[app.prof.person.list.name]
-xpath="string(//cmdp:authorizedFormOfName)"
-label="name"
-sort="true"
-filter="true"
-
 [app.prof.person.list.status]
-xpath="string(//cmd:status)"
-label="status"
-sort="true"
-filter="'select'"
-
-# ThesaurusConcepts
-
-[app.prof.concept]
-prof="clarin.eu:cr1:p_1721373443967"
-label_en="concept"
-label_plural_en="concepts"
-title="string(//cmdp:preferredTerm)"
-
-[app.prof.concept.list.term]
-xpath="string(//cmdp:preferredTerm)"
-label="type"
-sort="true"
-filter="true"
-
-[app.prof.concept.list.status]
 xpath="string(//cmdp:status)"
 label="status"
 sort="true"
@@ -114,9 +121,9 @@ label_en="event"
 label_plural_en="events"
 title="string(//cmdp:AuthorizedFormOfName)"
 
-[app.prof.event.list.event]
+[app.prof.event.list.name]
 xpath="string(//cmdp:AuthorizedFormOfName)"
-label="event"
+label="authorised form"
 sort="true"
 filter="true"
 
@@ -126,4 +133,22 @@ label="status"
 sort="true"
 filter="'select'"
 
+# Concepts
 
+[app.prof.concept]
+prof="clarin.eu:cr1:p_1721373443967"
+label_en="concept"
+label_plural_en="concepts"
+title="string(//cmdp:preferredTerm)"
+
+[app.prof.concept.list.term]
+xpath="string(//cmdp:preferredTerm)"
+label="term"
+sort="true"
+filter="true"
+
+[app.prof.concept.list.status]
+xpath="string(//cmdp:status)"
+label="status"
+sort="true"
+filter="'select'"

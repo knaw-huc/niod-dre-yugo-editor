@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><ComponentSpec xmlns:clariah="http://www.clariah.eu/" xmlns:cue="http://www.clarin.eu/cmd/cues/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2" xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd">
+    <Header>
+        <ID>clarin.eu:cr1:p_1733830015132</ID>
+        <Name>Event</Name>
+        <Description>Events</Description>
+        <Status>development</Status>
+        <DerivedFrom>clarin.eu:cr1:p_1733830015131</DerivedFrom>
+    </Header>
+    <Component name="Event">
+        <Element name="status" cue:class="status" cue:readonly="yes">
+            
+        </Element>
+        <Component name="EventIdentityArea">
+            <Element name="TypeOfEvent">
+                <Documentation>TypeOfEvent</Documentation>
+                
+            </Element>
+            <Element name="AuthorizedFormOfName">
+                <Documentation>AuthorizedFormOfName</Documentation>
+            </Element>
+            <Element name="ParallelFormsOfName">
+                <Documentation>ParallelFormsOfName</Documentation>
+            </Element>
+            <Element name="otherFormsOfName">
+                <Documentation>otherFormsOfName</Documentation>
+            </Element>
+        </Component>
+        <Component name="EventDescriptionArea">
+            <Element name="history" cue:inputWidth="60" cue:inputHeight="8">
+                <Documentation>history</Documentation>
+            </Element>
+            <Component name="DateRange">
+                <Element name="startDateYear">
+                    
+                </Element>
+                <Element name="startDateMonth">
+                    
+                </Element>
+                <Element name="startDateDay">
+                    
+                </Element>
+                <Element name="endDateYear">
+                    
+                </Element>
+                <Element name="endDateMonth">
+                    
+                </Element>
+                <Element name="endDateDay">
+                    
+                </Element>
+            </Component>
+        </Component>
+        <Component name="EventControlArea">
+            <Element name="authorityRecordIdentifier">
+                <Documentation>authorityRecordIdentifier</Documentation>
+            </Element>
+            <Element name="institutionIdentifier">
+                <Documentation>institutionIdentifier</Documentation>
+            </Element>
+            <Element name="sources" cue:inputWidth="60" cue:inputHeight="8">
+                <Documentation>sources</Documentation>
+            </Element>
+            <Element name="rulesOrConventions" cue:inputWidth="60" cue:inputHeight="8">
+                <Documentation>rulesOrConventions</Documentation>
+            </Element>
+            <Element name="datesOfCreationRevisionOrDeletion" cue:inputWidth="60" cue:inputHeight="8">
+                <Documentation>datesOfCreationRevisionOrDeletion</Documentation>
+            </Element>
+            <Element name="maintenanceNotes" cue:inputWidth="60" cue:inputHeight="8">
+                <Documentation>maintenanceNotes</Documentation>
+            </Element>
+        </Component>
+        <Component name="EventsRelationArea">
+            <Component name="EventAccess">
+                <Component name="Relationship">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1733830015132/entity/event</clariah:autoCompleteURI>
+                    </Element>
+                    <Element name="category">
+                        <ValueScheme>
+                            <Vocabulary>
+                                <enumeration>
+                                    <item>broader</item>
+                                    <item>narrower</item>
+                                </enumeration>
+                            </Vocabulary>
+                        </ValueScheme>
+                    </Element>
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+                    <Element name="date"><!--cues--></Element>
+                </Component>
+            </Component>
+            <Component name="CollectionAccess">
+                <Component name="Relationship">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443934/entity/collection</clariah:autoCompleteURI>
+                    </Element>
+                    <Element name="category"><!--cues--></Element>
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+                    <Element name="date"><!--cues--></Element>
+                </Component>
+            </Component>
+            <Component name="SubjectAccess">
+                <Component name="Relationship">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443967/entity/concept</clariah:autoCompleteURI>
+                    </Element>
+                    <Element name="category"><!--cues--></Element>
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+                    <Element name="date"><!--cues--></Element>
+                </Component>
+            </Component>
+            <Component name="placeAccess">
+                <Component name="Relationship">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1744616237113/entity/place</clariah:autoCompleteURI>
+                    </Element>
+                    <Element name="category"><!--cues--></Element>
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+                    <Element name="date"><!--cues--></Element>
+                </Component>
+            </Component>
+        </Component>
+    </Component>
+</ComponentSpec>

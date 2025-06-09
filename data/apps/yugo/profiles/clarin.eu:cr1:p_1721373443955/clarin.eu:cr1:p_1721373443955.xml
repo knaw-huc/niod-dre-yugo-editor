@@ -2,11 +2,11 @@
 <ComponentSpec isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2" xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Header>
         <ID>clarin.eu:cr1:p_1721373443955</ID>
-        <Name>CorporateBodiesPersonsFamilies</Name>
+        <Name>CorporateBodyPersonFamily</Name>
         <Description>Names of Persons, organisations or families</Description>
         <Status>development</Status>
     </Header>
-    <Component name="CorporateBodiesPersonsFamilies" CardinalityMin="1" CardinalityMax="1">
+    <Component name="CorporateBodyPersonFamily" CardinalityMin="1" CardinalityMax="1">
         <Element name="status" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
             <ValueScheme>
                 <Vocabulary>
@@ -17,7 +17,7 @@
                 </Vocabulary>
             </ValueScheme>
         </Element>
-        <Component name="CorporateBodiesPersonsFamiliesIdentityArea" ComponentRef="clarin.eu:cr1:c_1721373443956" CardinalityMin="1" CardinalityMax="1">
+        <Component name="CorporateBodyPersonFamilyIdentityArea" ComponentRef="clarin.eu:cr1:c_1721373443956" CardinalityMin="1" CardinalityMax="1">
             <Element name="typeOfPersonality" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                 <Documentation>Type of Personality</Documentation>
                 <ValueScheme>
@@ -31,10 +31,10 @@
                     </Vocabulary>
                 </ValueScheme>
             </Element>
-            <Element name="authorizedFormOfName" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+            <Element name="authorizedFormOfName" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                 <Documentation>Authorized Form Of Name</Documentation>
             </Element>
-            <Element name="parallelFormsOfName" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+            <Element name="parallelFormsOfName" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                 <Documentation>parallel forms of name</Documentation>
             </Element>
             <Element name="standardizedFormOfNameAccordingToOtherRules" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
@@ -44,7 +44,7 @@
                 <Documentation>Other Forms Of Name</Documentation>
             </Element>
         </Component>
-        <Component name="CorporateBodiesPersonsFamiliesDescriptionArea" ComponentRef="clarin.eu:cr1:c_1721373443957" CardinalityMin="1" CardinalityMax="1">
+        <Component name="CorporateBodyPersonFamilyDescriptionArea" ComponentRef="clarin.eu:cr1:c_1721373443957" CardinalityMin="1" CardinalityMax="1">
             <Element name="datesOfExistence" ValueScheme="string" CardinalityMin="0" CardinalityMax="10" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
             <Element name="history" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true">
                 <Documentation>History</Documentation>
@@ -65,7 +65,7 @@
                 <Documentation>generalContext</Documentation>
             </Element>
         </Component>
-        <Component name="CorporateBodiesPersonsFamiliesRelationshipArea" ComponentRef="clarin.eu:cr1:c_1721373444011" CardinalityMin="1" CardinalityMax="1">
+        <Component name="CorporateBodyPersonFamilyRelationshipArea" ComponentRef="clarin.eu:cr1:c_1721373444011" CardinalityMin="1" CardinalityMax="1">
             <Component name="EventsAccess" CardinalityMin="0" CardinalityMax="1">
                 <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="1" CardinalityMax="unbounded">
                     <Element name="to" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
@@ -100,7 +100,7 @@
             </Component>
             <Component name="PlacesAccess" CardinalityMin="0" CardinalityMax="1">
                 <Documentation>placesAccess</Documentation>
-                <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="1" CardinalityMax="1">
+                <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="1" CardinalityMax="unbounded">
                     <Element name="to" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
                     <Element name="category" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
                     <Element name="description" ValueScheme="string" CardinalityMin="0" CardinalityMax="1"/>
@@ -108,7 +108,7 @@
                 </Component>
             </Component>
         </Component>
-        <Component name="CorporateBodiesPersonsFamiliesControlArea" ComponentRef="clarin.eu:cr1:c_1721373443959" CardinalityMin="1" CardinalityMax="1">
+        <Component name="CorporateBodyPersonFamilyControlArea" ComponentRef="clarin.eu:cr1:c_1721373443959" CardinalityMin="1" CardinalityMax="1">
             <Element name="uniqueAuthorityRecordIdentifier" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                 <Documentation>uniqueAuthorityRecordIdentifier</Documentation>
             </Element>
@@ -130,8 +130,8 @@
                     </Vocabulary>
                 </ValueScheme>
             </Element>
-            <Element name="datesofCreationRevisionOrDeletion" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
-                <Documentation>DatesofCreationRevisionOrDeletion</Documentation>
+            <Element name="datesOfCreationRevisionOrDeletion" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>DatesOfCreationRevisionOrDeletion</Documentation>
             </Element>
             <Element name="sources" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                 <Documentation>Sources</Documentation>

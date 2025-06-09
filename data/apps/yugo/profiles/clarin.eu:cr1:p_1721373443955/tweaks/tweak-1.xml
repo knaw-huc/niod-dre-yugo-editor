@@ -1,28 +1,64 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ComponentSpec isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2"
-    xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:cue="http://www.clarin.eu/cmd/cues/1" xmlns:clariah="http://www.clariah.eu/">
+<?xml version="1.0" encoding="UTF-8"?><ComponentSpec xmlns:clariah="http://www.clariah.eu/" xmlns:cue="http://www.clarin.eu/cmd/cues/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2" xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd">
     <Header>
         <ID>clarin.eu:cr1:p_1721373443955</ID>
-        <Name>CorporateBodiesPersonsFamilies</Name>
+        <Name>CorporateBodyPersonFamily</Name>
         <Description>Names of Persons, organisations or families</Description>
         <Status>development</Status>
     </Header>
-    <Component name="CorporateBodiesPersonsFamilies">
-        <Element name="status" cue:class="status" cue:readonly="yes"/>
-        <Component name="CorporateBodiesPersonsFamiliesRelationshipArea">
+    <Component name="CorporateBodyPersonFamily">
+        <Element name="status" cue:class="status" cue:readonly="yes">
+            
+        </Element>
+        <Component name="CorporateBodyPersonFamilyIdentityArea">
+            <Element name="typeOfPersonality">
+                <Documentation>Type of Personality</Documentation>
+                
+            </Element>
+            <Element name="authorizedFormOfName">
+                <Documentation>Authorized Form Of Name</Documentation>
+            </Element>
+            <Element name="parallelFormsOfName">
+                <Documentation>parallel forms of name</Documentation>
+            </Element>
+            <Element name="standardizedFormOfNameAccordingToOtherRules">
+                <Documentation>Standardized Form Of Name According To OtherRules</Documentation>
+            </Element>
+            <Element name="otherFormsOfName">
+                <Documentation>Other Forms Of Name</Documentation>
+            </Element>
+        </Component>
+        <Component name="CorporateBodyPersonFamilyDescriptionArea">
+            <Element name="datesOfExistence"><!--cues--></Element>
+            <Element name="history" cue:inputWidth="60" cue:inputHeight="8">
+                <Documentation>History</Documentation>
+            </Element>
+            <Element name="nationality">
+                <Documentation>Nationality</Documentation>
+            </Element>
+            <Element name="functionsOccupationsAndActivities" cue:inputWidth="60" cue:inputHeight="8">
+                <Documentation>Functions Occupations and Activities</Documentation>
+            </Element>
+            <Element name="mandatesSourcesOfAuthority" cue:inputWidth="60" cue:inputHeight="8">
+                <Documentation>Mandates / Sources of Authority</Documentation>
+            </Element>
+            <Element name="internalStructuresOrGenealogy" cue:inputWidth="60" cue:inputHeight="8">
+                <Documentation>Internal Structures Or Genealogy</Documentation>
+            </Element>
+            <Element name="generalContext" cue:inputWidth="60" cue:inputHeight="8">
+                <Documentation>generalContext</Documentation>
+            </Element>
+        </Component>
+        <Component name="CorporateBodyPersonFamilyRelationshipArea">
             <Component name="EventsAccess">
                 <Component name="Relationship">
-                    <Element name="date" ValueScheme="date" cue:uncertainty="yes">
-                        <AutoValue>now</AutoValue>
-                    </Element>
                     <Element name="to" cue:class="skosType">
                         <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1733830015132/entity/event</clariah:autoCompleteURI>
                     </Element>
                     <Element name="category" cue:class="skosType">
                         <clariah:autoCompleteURI>/proxy/skosmos/sd/unbist</clariah:autoCompleteURI>
                     </Element>
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+                    <Element name="date"><!--cues--></Element>
                 </Component>
             </Component>
             <Component name="PersonalitiesAccess">
@@ -30,6 +66,9 @@
                     <Element name="to" cue:class="skosType">
                         <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443955/entity/person</clariah:autoCompleteURI>
                     </Element>
+                    <Element name="category"><!--cues--></Element>
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+                    <Element name="date"><!--cues--></Element>
                 </Component>
             </Component>
             <Component name="CollectionAccess">
@@ -37,6 +76,9 @@
                     <Element name="to" cue:class="skosType">
                         <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443934/entity/collection</clariah:autoCompleteURI>
                     </Element>
+                    <Element name="category"><!--cues--></Element>
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+                    <Element name="date"><!--cues--></Element>
                 </Component>
             </Component>
             <Component name="SubjectAccess">
@@ -44,11 +86,45 @@
                     <Element name="to" cue:class="skosType">
                         <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443967/entity/concept</clariah:autoCompleteURI>
                     </Element>
+                    <Element name="category"><!--cues--></Element>
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+                    <Element name="date"><!--cues--></Element>
                 </Component>
             </Component>
-            <Component name="placesAccess" CardinalityMin="0" CardinalityMax="1">
+            <Component name="PlacesAccess">
                 <Documentation>placesAccess</Documentation>
+                <Component name="Relationship">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1744616237113/entity/place</clariah:autoCompleteURI>
+                    </Element>
+                    <Element name="category"><!--cues--></Element>
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+                    <Element name="date"><!--cues--></Element>
+                </Component>
             </Component>
+        </Component>
+        <Component name="CorporateBodyPersonFamilyControlArea">
+            <Element name="uniqueAuthorityRecordIdentifier">
+                <Documentation>uniqueAuthorityRecordIdentifier</Documentation>
+            </Element>
+            <Element name="InstitutionIdentifier">
+                <Documentation>InstitutionIdentifier</Documentation>
+            </Element>
+            <Element name="rulesAndOrConventions" cue:inputWidth="60" cue:inputHeight="8">
+                <Documentation>rulesAndOrConventions</Documentation>
+            </Element>
+            <Element name="levelOfDetail">
+                <Documentation>levelOfDetail</Documentation>                
+            </Element>
+            <Element name="datesOfCreationRevisionOrDeletion">
+                <Documentation>DatesOfCreationRevisionOrDeletion</Documentation>
+            </Element>
+            <Element name="sources" cue:inputWidth="60" cue:inputHeight="8">
+                <Documentation>Sources</Documentation>
+            </Element>
+            <Element name="maintenanceNotes" cue:inputWidth="60" cue:inputHeight="8">
+                <Documentation>MaintenanceNotes</Documentation>
+            </Element>
         </Component>
     </Component>
 </ComponentSpec>

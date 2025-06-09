@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ComponentSpec isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2" xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Header>
+        <ID>clarin.eu:cr1:p_1744616237113</ID>
+        <Name>Place</Name>
+        <Description>Places</Description>
+        <Status>development</Status>
+    </Header>
+    <Component name="Place" CardinalityMin="1" CardinalityMax="1">
+        <Element name="status" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+            <ValueScheme>
+                <Vocabulary>
+                    <enumeration>
+                        <item>under construction</item>
+                        <item>publish</item>
+                    </enumeration>
+                </Vocabulary>
+            </ValueScheme>
+        </Element>
+        <Element name="dreIdentifier" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
+        <Element name="dreAuthorizedFormOfName" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
+        <Element name="dreParallelFormsOfName" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" Multilingual="true"/>
+        <Element name="description" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
+        <Element name="osmIdentifier" ValueScheme="anyURI" CardinalityMin="1" CardinalityMax="1">
+            <Documentation>here we make the link with the OpenStreetMap API</Documentation>
+        </Element>
+        <Component name="subjectAccess" CardinalityMin="0" CardinalityMax="1">
+            <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="0" CardinalityMax="unbounded">
+                <Element name="to" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
+                <Element name="category" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
+                <Element name="description" ValueScheme="string" CardinalityMin="0" CardinalityMax="1"/>
+                <Element name="date" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
+            </Component>
+        </Component>
+        <Component name="collectionAccess" CardinalityMin="0" CardinalityMax="1">
+            <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="1" CardinalityMax="1">
+                <Element name="to" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
+                <Element name="category" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
+                <Element name="description" ValueScheme="string" CardinalityMin="0" CardinalityMax="1"/>
+                <Element name="date" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
+            </Component>
+        </Component>
+    </Component>
+</ComponentSpec>
