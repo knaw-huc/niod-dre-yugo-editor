@@ -10,7 +10,9 @@
             
         </Element>
         <Element name="dreIdentifier"><!--cues--></Element>
-        <Element name="dreAuthorizedFormOfName"><!--cues--></Element>
+        <Element name="dreAuthorizedFormOfName">
+            <clariah:explanation>Only supply a single authorised name, but do indicate the language used!</clariah:explanation>
+            <!--cues--></Element>
         <Element name="dreParallelFormsOfName"><!--cues--></Element>
         <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
         <Element name="osmIdentifier">

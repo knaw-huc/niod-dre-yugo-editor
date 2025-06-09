@@ -16,6 +16,7 @@
             </Element>
             <Element name="authorizedFormOfName">
                 <Documentation>Authorized Form Of Name</Documentation>
+                <clariah:explanation>Only supply a single authorised name, but do indicate the language used!</clariah:explanation>
             </Element>
             <Element name="parallelFormsOfName">
                 <Documentation>parallel forms of name</Documentation>

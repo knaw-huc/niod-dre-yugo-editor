@@ -19,6 +19,8 @@
             </Element>
             <Component name="Titles">
                 <Element name="AuthorizedFormOfTitle">
+                    <clariah:explanation>Only supply a single authorised title, but do indicate the language used!</clariah:explanation>
+    
                 </Element>
                 <Element name="parallelFormsOfTitles">
                     <Documentation>parallel forms of titles</Documentation>

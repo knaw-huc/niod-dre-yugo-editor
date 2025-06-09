@@ -13,7 +13,9 @@
             <Element name="dreIdentifier"><!--cues--></Element>
             <Element name="typeOfInstitution"/>
             <Component name="Names">
-                <Element name="authorisedForm"><!--cues--></Element>
+                <Element name="authorisedForm">
+                    <clariah:explanation>Only supply a single authorised name, but do indicate the language used!</clariah:explanation>
+                    <!--cues--></Element>
                 <Element name="parallelForm"><!--cues--></Element>
                 <Element name="otherForm"><!--cues--></Element>
             </Component>
