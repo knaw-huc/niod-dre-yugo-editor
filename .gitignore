@@ -8,3 +8,6 @@ config.xml
 htp
 htp.test
 /data/osm
+/data/apps/yugo/trace
+/data/apps/yugo/profiles/clarin.eu:cr1:p_1721373443934/records
+/data/apps/yugo/profiles/clarin.eu:cr1:p_1747312582429/records

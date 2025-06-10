@@ -106,7 +106,7 @@
             <Component name="CollectionAccess">
                 <Component name="Relationship">
                     <Element name="to" cue:class="skosType">
-                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443934/entity/collection</clariah:autoCompleteURI>
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582429/entity/collection</clariah:autoCompleteURI>
                     </Element>
                     <Element name="category"><!--cues--></Element>
                     <Element name="description"><!--cues--></Element>
@@ -118,7 +118,7 @@
                 <Component name="CollectionAccess">
                     <Component name="Relationship">
                         <Element name="to" cue:class="skosType">
-                            <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443934/entity/collection</clariah:autoCompleteURI>
+                            <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582429/entity/collection</clariah:autoCompleteURI>
                         </Element>
                         <Element name="category"><!--cues--></Element>
                         <Element name="description"><!--cues--></Element>
@@ -130,7 +130,7 @@
                     <Component name="CollectionAccess">
                         <Component name="Relationship">
                             <Element name="to" cue:class="skosType">
-                                <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443934/entity/collection</clariah:autoCompleteURI>
+                                <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582429/entity/collection</clariah:autoCompleteURI>
                             </Element>
                             <Element name="category"><!--cues--></Element>
                             <Element name="description"><!--cues--></Element>
@@ -142,7 +142,7 @@
                         <Component name="CollectionAccess">
                             <Component name="Relationship">
                                 <Element name="to" cue:class="skosType">
-                                    <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443934/entity/collection</clariah:autoCompleteURI>
+                                    <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582429/entity/collection</clariah:autoCompleteURI>
                                 </Element>
                                 <Element name="category"><!--cues--></Element>
                                 <Element name="description"><!--cues--></Element>
