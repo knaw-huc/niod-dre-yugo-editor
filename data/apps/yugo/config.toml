@@ -52,7 +52,7 @@ prof="clarin.eu:cr1:p_1747312582429"
 label_en="collection"
 label_plural_en="collections"
 entity="//cmdp:Collection"
-title="(./cmdp:identificationArea/cmdp:titles/cmdp:AuthorizedFormOfTitle/string())[1]"
+title="(./cmdp:identificationArea/cmdp:Titles/cmdp:AuthorizedFormOfTitle/string())[1]"
 
 [app.prof.collection.list.name]
 xpath="string(//cmdp:AuthorizedFormOfTitle)"
