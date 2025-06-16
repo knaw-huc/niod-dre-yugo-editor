@@ -22,10 +22,11 @@ style="yugo.css"
 
 [app.prof.institution]
 prof="clarin.eu:cr1:p_1721373443934"
+entity="//cmdp:CollectionHoldingInstitution"
 label_en="collection holding institution"
 label_plural_en="collection holding institutions"
 title="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
-id ="/cmd:CMD/cmd:Components/cmdp:CollectionHoldingInstitution/cmdp:CollectionHoldingInstitutionIdentityArea/cmdp:DREidentifier"
+#id ="/cmd:CMD/cmd:Components/cmdp:CollectionHoldingInstitution/cmdp:CollectionHoldingInstitutionIdentityArea/cmdp:dreIdentifier"
 
 [app.prof.institution.list.name]
 xpath="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
