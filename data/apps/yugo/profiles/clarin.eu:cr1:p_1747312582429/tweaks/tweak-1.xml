@@ -119,5 +119,41 @@
                 <Documentation>Date or dates of description</Documentation>
             </Element>
         </Component>
+        <Component name="CollectionHoldingInstitutionAccess">
+            <Component name="Relationship">
+                <Element name="to" cue:class="skosType">
+                    <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443934/entity/institution</clariah:autoCompleteURI>
+                </Element>
+                <Element name="category">
+                    <ValueScheme>
+                        <Vocabulary>
+                            <enumeration>
+                                <item>belongs to</item>
+                            </enumeration>
+                        </Vocabulary>
+                    </ValueScheme>
+                </Element>
+                <Element name="description"><!--cues--></Element>
+                <Element name="date"><!--cues--></Element>
+            </Component>
+        </Component>
+        <Component name="CollectionAccess">
+            <Component name="Relationship">
+                <Element name="to" cue:class="skosType">
+                    <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582429/entity/collection</clariah:autoCompleteURI>
+                </Element>
+                <Element name="category">
+                    <ValueScheme>
+                        <Vocabulary>
+                            <enumeration>
+                                <item>is part of</item>
+                            </enumeration>
+                        </Vocabulary>
+                    </ValueScheme>
+                </Element>
+                <Element name="description"><!--cues--></Element>
+                <Element name="date"><!--cues--></Element>
+            </Component>
+        </Component>
     </Component>
 </ComponentSpec>
