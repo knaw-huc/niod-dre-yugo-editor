@@ -101,57 +101,5 @@
                 <Documentation>maintenanceNotes</Documentation>
             </Element>
         </Component>
-        <Component name="Level1">
-            <clariah:label xml:lang="en">Level 1</clariah:label>
-            <Component name="CollectionAccess">
-                <Component name="Relationship">
-                    <Element name="to" cue:class="skosType">
-                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582429/entity/collection</clariah:autoCompleteURI>
-                    </Element>
-                    <Element name="category"><!--cues--></Element>
-                    <Element name="description"><!--cues--></Element>
-                    <Element name="date"><!--cues--></Element>
-                </Component>
-            </Component>
-            <Component name="Level2">
-                <clariah:label xml:lang="en">Level 2</clariah:label>
-                <Component name="CollectionAccess">
-                    <Component name="Relationship">
-                        <Element name="to" cue:class="skosType">
-                            <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582429/entity/collection</clariah:autoCompleteURI>
-                        </Element>
-                        <Element name="category"><!--cues--></Element>
-                        <Element name="description"><!--cues--></Element>
-                        <Element name="date"><!--cues--></Element>
-                    </Component>
-                </Component>
-                <Component name="Level3">
-                    <clariah:label xml:lang="en">Level 3</clariah:label>
-                    <Component name="CollectionAccess">
-                        <Component name="Relationship">
-                            <Element name="to" cue:class="skosType">
-                                <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582429/entity/collection</clariah:autoCompleteURI>
-                            </Element>
-                            <Element name="category"><!--cues--></Element>
-                            <Element name="description"><!--cues--></Element>
-                            <Element name="date"><!--cues--></Element>
-                        </Component>
-                    </Component>
-                    <Component name="Level4">
-                        <clariah:label xml:lang="en">Level 4</clariah:label>
-                        <Component name="CollectionAccess">
-                            <Component name="Relationship">
-                                <Element name="to" cue:class="skosType">
-                                    <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582429/entity/collection</clariah:autoCompleteURI>
-                                </Element>
-                                <Element name="category"><!--cues--></Element>
-                                <Element name="description"><!--cues--></Element>
-                                <Element name="date"><!--cues--></Element>
-                            </Component>
-                        </Component>
-                    </Component>
-                </Component>
-            </Component>
-        </Component>
     </Component>
 </ComponentSpec>
