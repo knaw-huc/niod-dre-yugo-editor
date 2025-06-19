@@ -28,6 +28,12 @@ label_plural_en="collection holding institutions"
 title="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
 #id ="/cmd:CMD/cmd:Components/cmdp:CollectionHoldingInstitution/cmdp:CollectionHoldingInstitutionIdentityArea/cmdp:dreIdentifier"
 
+[app.prof.institution.list.nr]
+xpath="replace(//*:MdSelfLink,'unl://','')"
+label="nr"
+sort="true"
+filter="true"
+
 [app.prof.institution.list.name]
 xpath="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
 label="authorised form"
@@ -41,7 +47,7 @@ sort="true"
 filter="'select'"
 
 [app.prof.institution.list.status]
-xpath="string(//cmdp:status)"
+xpath="string(//cmdp:CollectionHoldingInstitution/cmdp:status)"
 label="status"
 sort="true"
 filter="'select'"
@@ -54,6 +60,12 @@ label_en="collection"
 label_plural_en="collections"
 entity="//cmdp:Collection"
 title="string((//cmdp:AuthorizedFormOfTitle[@xml:lang='en'],//cmdp:AuthorizedFormOfTitle)[1])"
+
+[app.prof.collection.list.nr]
+xpath="replace(//*:MdSelfLink,'unl://','')"
+label="nr"
+sort="true"
+filter="true"
 
 [app.prof.collection.list.name]
 xpath="string((//cmdp:AuthorizedFormOfTitle[@xml:lang='en'],//cmdp:AuthorizedFormOfTitle)[1])"
@@ -75,6 +87,12 @@ label_en="place"
 label_plural_en="places"
 title="string((//cmdp:dreAuthorizedFormOfName[@xml:lang='en'],//cmdp:dreAuthorizedFormOfName)[1])"
 
+[app.prof.place.list.nr]
+xpath="replace(//*:MdSelfLink,'unl://','')"
+label="nr"
+sort="true"
+filter="true"
+
 [app.prof.place.list.name]
 xpath="string((//cmdp:dreAuthorizedFormOfName[@xml:lang='en'],//cmdp:dreAuthorizedFormOfName)[1])"
 label="authorised form"
@@ -95,6 +113,12 @@ label_en="personality"
 label_plural_en="personalities"
 title="string((//cmdp:authorizedFormOfName[@xml:lang='en'],//cmdp:authorizedFormOfName)[1])"
 #html="person-toHTML.xsl"
+
+[app.prof.person.list.nr]
+xpath="replace(//*:MdSelfLink,'unl://','')"
+label="nr"
+sort="true"
+filter="true"
 
 [app.prof.person.list.name]
 xpath="string((//cmdp:authorizedFormOfName[@xml:lang='en'],//cmdp:authorizedFormOfName)[1])"
@@ -122,6 +146,12 @@ label_en="event"
 label_plural_en="events"
 title="string((//cmdp:AuthorizedFormOfName[@xml:lang='en'],//cmdp:AuthorizedFormOfName)[1])"
 
+[app.prof.event.list.nr]
+xpath="replace(//*:MdSelfLink,'unl://','')"
+label="nr"
+sort="true"
+filter="true"
+
 [app.prof.event.list.name]
 xpath="string((//cmdp:AuthorizedFormOfName[@xml:lang='en'],//cmdp:AuthorizedFormOfName)[1])"
 label="authorised form"
@@ -141,6 +171,12 @@ prof="clarin.eu:cr1:p_1721373443967"
 label_en="concept"
 label_plural_en="concepts"
 title="string(//cmdp:preferredTerm)"
+
+[app.prof.concept.list.nr]
+xpath="replace(//*:MdSelfLink,'unl://','')"
+label="nr"
+sort="true"
+filter="true"
 
 [app.prof.concept.list.term]
 xpath="string(//cmdp:preferredTerm)"
