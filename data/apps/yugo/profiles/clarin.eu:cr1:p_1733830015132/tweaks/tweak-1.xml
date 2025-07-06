@@ -8,71 +8,71 @@
     </Header>
     <Component name="Event">
         <Element name="status" cue:class="status" cue:readonly="yes">
-            
         </Element>
-        <Component name="EventIdentityArea">
-            <Element name="TypeOfEvent">
-                <Documentation>TypeOfEvent</Documentation>
-                
+        <Component name="IdentityArea">
+            <Element name="class">
+                <clariah:explanation src="documentation"/>
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item>Event</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>
             </Element>
-            <Element name="AuthorizedFormOfName">
-                <clariah:explanation>Only supply a single authorised name, but do indicate the language used!</clariah:explanation>
-                <Documentation>AuthorizedFormOfName</Documentation>
+            <Element name="type">
+                <clariah:explanation src="documentation"/>
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item AppInfo="Armed conflict" conceptLink="">Armed conflict</item>
+                            <item AppInfo="Siege" conceptLink="">Siege</item>
+                            <item AppInfo="Mass killing" conceptLink="">Mass killing</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>                
             </Element>
-            <Element name="ParallelFormsOfName">
-                <Documentation>ParallelFormsOfName</Documentation>
-            </Element>
-            <Element name="otherFormsOfName">
-                <Documentation>otherFormsOfName</Documentation>
-            </Element>
-        </Component>
-        <Component name="EventDescriptionArea">
-            <Element name="history" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>history</Documentation>
-            </Element>
-            <Component name="DateRange">
-                <Element name="startDateYear">
-                    
+            <Component name="Names">
+                <Element name="authorisedForm">
+                    <clariah:explanation src="documentation"/>
                 </Element>
-                <Element name="startDateMonth">
-                    
+                <Element name="parallelForms">
+                    <clariah:explanation src="documentation"/>                    
                 </Element>
-                <Element name="startDateDay">
-                    
-                </Element>
-                <Element name="endDateYear">
-                    
-                </Element>
-                <Element name="endDateMonth">
-                    
-                </Element>
-                <Element name="endDateDay">
-                    
+                <Element name="otherForms">
+                    <clariah:explanation src="documentation"/>
                 </Element>
             </Component>
         </Component>
-        <Component name="EventControlArea">
-            <Element name="authorityRecordIdentifier">
-                <Documentation>authorityRecordIdentifier</Documentation>
+        <Component name="EventDescriptionArea">
+            <Element name="history" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="institutionIdentifier">
-                <Documentation>institutionIdentifier</Documentation>
-            </Element>
-            <Element name="sources" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>sources</Documentation>
-            </Element>
-            <Element name="rulesOrConventions" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>rulesOrConventions</Documentation>
-            </Element>
-            <Element name="datesOfCreationRevisionOrDeletion" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>datesOfCreationRevisionOrDeletion</Documentation>
-            </Element>
-            <Element name="maintenanceNotes" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>maintenanceNotes</Documentation>
-            </Element>
+                <Component name="Date">
+                    <Element name="dateStart">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                    <Element name="dateEnd">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                </Component>
         </Component>
-        <Component name="EventsRelationArea">
-            <Component name="EventAccess">
+        <Component name="Subject">
+            <Element name="thesaurusSubject" cue:class="skosType">
+                <clariah:autoCompleteURI>/proxy/skosmos/sd/yugothes</clariah:autoCompleteURI>
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Component name="AdditionalKeywords">
+                <Element name="label">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+                <Element name="uri">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+            </Component>
+        </Component>
+        <Component name="RelationshipArea">
+            <Component name="ToEvent">
                 <Component name="Relationship">
                     <Element name="to" cue:class="skosType">
                         <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1733830015132/entity/event</clariah:autoCompleteURI>
@@ -81,46 +81,86 @@
                         <ValueScheme>
                             <Vocabulary>
                                 <enumeration>
-                                    <item>broader</item>
-                                    <item>narrower</item>
+                                    <item>is part of</item>
                                 </enumeration>
                             </Vocabulary>
                         </ValueScheme>
                     </Element>
-                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-                    <Element name="date"><!--cues--></Element>
-                </Component>
-            </Component>
-            <Component name="CollectionAccess">
-                <Component name="Relationship">
-                    <Element name="to" cue:class="skosType">
-                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582429/entity/collection</clariah:autoCompleteURI>
+                    <Element name="description">
+                        <clariah:explanation src="documentation"/>
                     </Element>
-                    <Element name="category"><!--cues--></Element>
-                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-                    <Element name="date"><!--cues--></Element>
-                </Component>
-            </Component>
-            <Component name="SubjectAccess">
-                <Component name="Relationship">
-                    <Element name="to" cue:class="skosType">
-                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443967/entity/concept</clariah:autoCompleteURI>
+                    <Element name="date">
+                        <clariah:explanation src="documentation"/>
                     </Element>
-                    <Element name="category"><!--cues--></Element>
-                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-                    <Element name="date"><!--cues--></Element>
                 </Component>
             </Component>
-            <Component name="placeAccess">
-                <Component name="Relationship">
+            <Component name="ToPlace">
+                <Component name="Relationship" CardinalityMin="1" CardinalityMax="0">
                     <Element name="to" cue:class="skosType">
                         <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1744616237113/entity/place</clariah:autoCompleteURI>
                     </Element>
-                    <Element name="category"><!--cues--></Element>
-                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-                    <Element name="date"><!--cues--></Element>
+                    <Element name="category">
+                        <ValueScheme>
+                            <Vocabulary>
+                                <enumeration>
+                                    <item>took place in</item>
+                                </enumeration>
+                            </Vocabulary>
+                        </ValueScheme>
+                    </Element>
+                    <Element name="description">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                    <Element name="date">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
                 </Component>
-            </Component>
+            </Component>        </Component>
+        <Component name="Media">
+            <Element name="type">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="fileName">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="name">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="encodingFormat">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="creator">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="description">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="datePublished">
+                <clariah:explanation src="documentation"/>
+            </Element>
+        </Component>
+        <Component name="ControlArea">
+            <Element name="levelOfDetail">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="rulesAndOrConventionsUsed">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="datesOfCreationRevisionOrDeletion">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="languageOfDescription">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="scriptOfDescription">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="sourcesOfInformation">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="maintenanceNotes">
+                <clariah:explanation src="documentation"/>
+            </Element>
         </Component>
     </Component>
 </ComponentSpec>
