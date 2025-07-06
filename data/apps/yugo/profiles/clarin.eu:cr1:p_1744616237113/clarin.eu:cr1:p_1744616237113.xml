@@ -17,28 +17,96 @@
                 </Vocabulary>
             </ValueScheme>
         </Element>
-        <Element name="dreIdentifier" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
-        <Element name="dreAuthorizedFormOfName" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
-        <Element name="dreParallelFormsOfName" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" Multilingual="true"/>
-        <Element name="description" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
         <Element name="osmIdentifier" ValueScheme="anyURI" CardinalityMin="1" CardinalityMax="1">
-            <Documentation>here we make the link with the OpenStreetMap API</Documentation>
+            <Documentation>Enter the URI from OpenStreetMap API. You can search directly in OpenStreetMaps and paste the URI here. The URI has to have this format, for example: https://www.openstreetmap.org/relation/214885 (note the type in the middle: relation, node,  way)</Documentation>
         </Element>
-        <Component name="subjectAccess" CardinalityMin="0" CardinalityMax="1">
-            <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="0" CardinalityMax="unbounded">
-                <Element name="to" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
-                <Element name="category" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
-                <Element name="description" ValueScheme="string" CardinalityMin="0" CardinalityMax="1"/>
-                <Element name="date" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
+        <Element name="description" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
+        <Component name="IdentityArea" ComponentRef="clarin.eu:cr1:c_1721373443935" CardinalityMin="1" CardinalityMax="1">
+            <Element name="class" ConceptLink="http://www.w3.org/2000/01/rdf-schema#Class" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>It automatically encodes the type of entity/class described in this Profile.  NOTE: For Collection you still need to repeate the Level in the Collection Specific Identity Area.</Documentation>
+            </Element>
+            <Element name="type" ConceptLink="http://www.w3.org/2000/01/rdf-schema#subClassOf" CardinalityMin="1" CardinalityMax="1">
+                <Documentation>Choose the type for this entity class. For each class you may see wich types apply, some entities (e.g., Person) don't have types. Some subtypes have concept links (i.e., definitions). If you want to consult them or add more types, the tweak file has to be edited.</Documentation>
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item ConceptLink="http://www.cidoc-crm.org/cidoc-crm/E78_Curated_Holding">Collection</item>
+                            <item ConceptLink="http://www.cidoc-crm.org/cidoc-crm/E39_Actor">CollectionHoldingInstitution</item>
+                            <item ConceptLink="http://www.cidoc-crm.org/cidoc-crm/E5_Event">Event</item>
+                            <item ConceptLink="http://www.cidoc-crm.org/cidoc-crm/E74_Group">Group</item>
+                            <item ConceptLink="http://www.cidoc-crm.org/cidoc-crm/E21_Person">Person</item>
+                            <item>Place</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>
+            </Element>
+            <Component name="Names" ComponentRef="clarin.eu:cr1:c_1747312582453" CardinalityMin="1" CardinalityMax="1">
+                <Element name="authorisedForm" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                    <Documentation>Enter ONLY ONE authorized form of name EVEN IF YOU SEE A + SIGN (do not use it). This is the authorized form of the name, based on the language and script of the authority record (Section 5.1 of the ISAAR (CPF) Second Edition guidelines) </Documentation>
+                </Element>
+                <Element name="parallelForms" ValueScheme="string" CardinalityMin="1" CardinalityMax="unbounded" Multilingual="true" cue:DisplayPriority="2" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                    <Documentation>Used for translations. Add the forms of the authorized name in other languages. You can add as many as you want (preferably limit to: fr, bos, hrv, srp), but ALWAYS assign a language tag (even if the script is not added for now)..</Documentation>
+                </Element>
+                <Element name="otherForms" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" Multilingual="true">
+                    <Documentation>Used for other forms of the name (i.e., not translations but alternative forms, e.g., acronyms, nicknames, etc.). You can assign as many as you want. It's up to you to decide if the alternative form will or not be in other languages, but ALWAYS assign a language tag even if it is English.</Documentation>
+                </Element>
             </Component>
         </Component>
-        <Component name="collectionAccess" CardinalityMin="0" CardinalityMax="1">
-            <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="1" CardinalityMax="1">
-                <Element name="to" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
-                <Element name="category" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
-                <Element name="description" ValueScheme="string" CardinalityMin="0" CardinalityMax="1"/>
-                <Element name="date" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded"/>
-            </Component>
+        <Component name="Media" ComponentRef="clarin.eu:cr1:c_1747312582454" ConceptLink="" CardinalityMin="1" CardinalityMax="1">
+            <Element name="type" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>Image or Document for now.</Documentation>
+            </Element>
+            <Element name="fileName" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="2" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>Copy/paste the file name exactly as it is.</Documentation>
+            </Element>
+            <Element name="name" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="3" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>Name or title of the media.</Documentation>
+            </Element>
+            <Element name="encodingFormat" ConceptLink="https://schema.org/encodingFormat" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="4" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>Often jpeg.</Documentation>
+            </Element>
+            <Element name="creator" ConceptLink="https://schema.org/creator" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="5" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>Who made the media (credits).</Documentation>
+            </Element>
+            <Element name="description" ConceptLink="https://schema.org/description" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="6" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>A description of the item.</Documentation>
+            </Element>
+            <Element name="datePublished" ConceptLink="https://schema.org/datePublished" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="7" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>Date of first publication or broadcast</Documentation>
+            </Element>
+        </Component>
+        <Component name="ControlArea" ComponentRef="clarin.eu:cr1:c_1733830015137" CardinalityMin="1" CardinalityMax="1">
+            <Documentation>Control Area</Documentation>
+            <Element name="levelOfDetail" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>(see ISAAR (CPF), 2nd Edition, 5.4)</Documentation>
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item AppInfo="Minimal">Minimal</item>
+                            <item AppInfo="Partial">Partial</item>
+                            <item AppInfo="Full">Full</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>
+            </Element>
+            <Element name="rulesAndOrConventionsUsed" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>(see ISAAR (CPF), 2nd Edition, 5.4)</Documentation>
+            </Element>
+            <Element name="datesOfCreationRevisionOrDeletion" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>(see ISAAR (CPF), 2nd Edition, 5.4)</Documentation>
+            </Element>
+            <Element name="languageOfDescription" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>(see ISAAR (CPF), 2nd Edition, 5.4)</Documentation>
+            </Element>
+            <Element name="scriptOfDescription" ValueScheme="string" CardinalityMin="0" CardinalityMax="1">
+                <Documentation>(see ISAAR (CPF), 2nd Edition, 5.4)</Documentation>
+            </Element>
+            <Element name="sourcesOfInformation" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>(see ISAAR (CPF), 2nd Edition, 5.4)</Documentation>
+            </Element>
+            <Element name="maintenanceNotes" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>(see ISAAR (CPF), 2nd Edition, 5.4)</Documentation>
+            </Element>
         </Component>
     </Component>
 </ComponentSpec>

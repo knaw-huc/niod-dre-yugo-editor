@@ -6,38 +6,90 @@
         <Status>development</Status>
     </Header>
     <Component name="Place">
-        <Element name="status" cue:class="status" cue:readonly="yes">
-            
-        </Element>
-        <Element name="dreIdentifier"><!--cues--></Element>
-        <Element name="dreAuthorizedFormOfName">
-            <clariah:explanation>Only supply a single authorised name, but do indicate the language used!</clariah:explanation>
-            <!--cues--></Element>
-        <Element name="dreParallelFormsOfName"><!--cues--></Element>
-        <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+        <Element name="status" cue:class="status" cue:readonly="yes"></Element>
         <Element name="osmIdentifier">
-            <Documentation>here we make the link with the OpenStreetMap API</Documentation>
+            <clariah:explanation src="documentation"/>
             <clariah:autoCompleteURI>/proxy/nominatim/local</clariah:autoCompleteURI>
         </Element>
-        <Component name="subjectAccess">
-            <Component name="Relationship">
-                <Element name="to" cue:class="skosType">
-                    <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443967/entity/concept</clariah:autoCompleteURI>
+        <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+        <Component name="IdentityArea">
+            <Element name="class">
+                <clariah:explanation src="documentation"/>
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item>Place</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>
+            </Element>
+            <Element name="type">
+                <clariah:explanation src="documentation"/>
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item>Place</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>                
+            </Element>
+            <Component name="Names">
+                <Element name="authorisedForm">
+                    <clariah:explanation src="documentation"/>
                 </Element>
-                <Element name="category"><!--cues--></Element>
-                <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-                <Element name="date"><!--cues--></Element>
+                <Element name="parallelForms">
+                    <clariah:explanation src="documentation"/>                    
+                </Element>
+                <Element name="otherForms">
+                    <clariah:explanation src="documentation"/>
+                </Element>
             </Component>
         </Component>
-        <Component name="collectionAccess">
-            <Component name="Relationship">
-                <Element name="to" cue:class="skosType">
-                    <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582429/entity/collection</clariah:autoCompleteURI>
-                </Element>
-                <Element name="category"><!--cues--></Element>
-                <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-                <Element name="date"><!--cues--></Element>
-            </Component>
+        <Component name="Media">
+            <Element name="type">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="fileName">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="name">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="encodingFormat">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="creator">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="description">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="datePublished">
+                <clariah:explanation src="documentation"/>
+            </Element>
+        </Component>
+        <Component name="ControlArea">
+            <Element name="levelOfDetail">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="rulesAndOrConventionsUsed">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="datesOfCreationRevisionOrDeletion">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="languageOfDescription">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="scriptOfDescription">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="sourcesOfInformation">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="maintenanceNotes">
+                <clariah:explanation src="documentation"/>
+            </Element>
         </Component>
     </Component>
 </ComponentSpec>
