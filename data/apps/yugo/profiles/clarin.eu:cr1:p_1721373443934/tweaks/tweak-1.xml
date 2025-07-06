@@ -6,99 +6,193 @@
         <Status>development</Status>
     </Header>
     <Component name="CollectionHoldingInstitution">
-        <Element name="status" cue:class="status" cue:readonly="yes">
-            
-        </Element>
-        <Component name="CollectionHoldingInstitutionIdentityArea">
-            <Element name="dreIdentifier"><!--cues--></Element>
-            <Element name="typeOfInstitution"/>
+        <Element name="status" cue:class="status" cue:readonly="yes"></Element>
+        <Component name="IdentityArea">
+            <Element name="class">
+                <clariah:explanation src="documentation"/>
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item>CollectionHoldingInstitution</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>
+            </Element>
+            <Element name="type">
+                <clariah:explanation src="documentation"/>
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item AppInfo="ArchivalInstitution" conceptLink="">Archival institution</item>
+                            <item AppInfo="InternationalOrganisation" conceptLink="">International organisation</item>
+                            <item AppInfo="MilitaryOrganisation" conceptLink="">Military organisation</item>
+                            <item AppInfo="Private" conceptLink="">Private</item>
+                            <item AppInfo="ResearchInstitution" conceptLink="">Research institution</item>
+                            <item AppInfo="MediaInstitution" conceptLink="">Media institution</item>
+                            <item AppInfo="NonGovernmentalOrganisation" conceptLink="">Non-governmental organisation</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>                
+            </Element>
             <Component name="Names">
                 <Element name="authorisedForm">
-                    <clariah:explanation>Only supply a single authorised name, but do indicate the language used!</clariah:explanation>
-                    <!--cues--></Element>
-                <Element name="parallelForm"><!--cues--></Element>
-                <Element name="otherForm"><!--cues--></Element>
+                    <clariah:explanation src="documentation"/>
+                </Element>
+                <Element name="parallelForms">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+                <Element name="otherForms">
+                    <clariah:explanation src="documentation"/>
+                </Element>
             </Component>
         </Component>
         <Component name="CollectionHoldingInstitutionContactArea">
             <Element name="address">
-                <Documentation>address</Documentation>
+                <clariah:explanation src="documentation"/>
             </Element>
             <Element name="additionalPostAddress">
-                <Documentation>additionalPostAddress</Documentation>
+                <clariah:explanation src="documentation"/>
             </Element>
             <Element name="postalCode">
-                <Documentation>postalCode</Documentation>
+                <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="city"><!--cues--></Element>
+            <Element name="city">
+                <clariah:explanation src="documentation"/>
+            </Element>
             <Element name="regionProvince">
-                <Documentation>Region or province where CHI is located</Documentation>
+                <clariah:explanation src="documentation"/>
             </Element>
             <Element name="country">
-                <Documentation>Country where CHI is located</Documentation>
+                <clariah:explanation src="documentation"/>
             </Element>
             <Element name="telephoneNumber">
-                <Documentation>Telephone number of CHI</Documentation>
+                <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="faxNumber"><!--cues--></Element>
-            <Element name="email"><!--cues--></Element>
-            <Element name="website"><!--cues--></Element>
-            <Element name="contactPerson"><!--cues--></Element>
+            <Element name="faxNumber"><!--cues-->
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="email"><!--cues-->
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="website"><!--cues-->
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="contactPerson"><!--cues-->
+                <clariah:explanation src="documentation"/>
+            </Element>
         </Component>
         <Component name="CollectionHoldingInstitutionDescriptionArea">
-            <Element name="history" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-            <Element name="geographicalAndCulturalContext" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-            <Element name="mandatesOrSourcesOfAuthority" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-            <Element name="administrativeStructure" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-            <Element name="recordsManagmentAndCollectingPolicies" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-            <Element name="buildings" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-            <Element name="archivalHoldings" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-            <Element name="findingAidsGuidesPublications" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
+            <Element name="history" cue:inputWidth="60" cue:inputHeight="8"><!--cues-->
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="geographicalAndCulturalContext" cue:inputWidth="60" cue:inputHeight="8"><!--cues-->
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="mandatesOrSourcesOfAuthority" cue:inputWidth="60" cue:inputHeight="8"><!--cues-->
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="administrativeStructure" cue:inputWidth="60" cue:inputHeight="8"><!--cues-->
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="recordsManagmentAndCollectingPolicies" cue:inputWidth="60" cue:inputHeight="8"><!--cues-->
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="buildings" cue:inputWidth="60" cue:inputHeight="8"><!--cues-->
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="archivalHoldings" cue:inputWidth="60" cue:inputHeight="8"><!--cues-->
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="findingAidsGuidesPublications" cue:inputWidth="60" cue:inputHeight="8"><!--cues-->
+                <clariah:explanation src="documentation"/>
+            </Element>
             <Element name="openingTimes" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>openingTimes</Documentation>
+                <clariah:explanation src="documentation"/>
             </Element>
             <Element name="conditionsAndRequirements" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>ConditionsAndRequirements</Documentation>
+                <clariah:explanation src="documentation"/>
             </Element>
             <Element name="accessibility" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>accessibility</Documentation>
+                <clariah:explanation src="documentation"/>
             </Element>
             <Element name="researchServices" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>researchServices</Documentation>
+                <clariah:explanation src="documentation"/>
             </Element>
             <Element name="reproductionServices" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>reproductionServices</Documentation>
+                <clariah:explanation src="documentation"/>
             </Element>
             <Element name="publicAreas" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>publicAreas</Documentation>
+                <clariah:explanation src="documentation"/>
             </Element>
         </Component>
-        <Component name="CollectionHoldingInstitutionControlArea">
-            <Documentation>CollectionHoldingInstitutionsControlArea</Documentation>
-            <Element name="CHIDescriptionIdentifier">
-                <Documentation>CHIDescriptionIdentifier</Documentation>
+        <Component name="RelationshipsArea">
+            <Component name="ToPlace">
+                <Component name="Relationship">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1744616237113/entity/place</clariah:autoCompleteURI>
+                    </Element>
+                    <Element name="category">
+                        <ValueScheme>
+                            <Vocabulary>
+                                <enumeration>
+                                    <item>located in</item>
+                                </enumeration>
+                            </Vocabulary>
+                        </ValueScheme>
+                    </Element>
+                    <Element name="description">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                    <Element name="date">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                </Component>
+            </Component>
+        </Component>
+        <Component name="Media">
+            <Element name="type">
+                <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="institutionIdentifier">
-                <Documentation>institutionIdentifier</Documentation>
+            <Element name="fileName">
+                <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="rulesAndOrConventionsUsed" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>rulesAndOrConventionsUsed</Documentation>
+            <Element name="name">
+                <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="status">
-                
+            <Element name="encodingFormat">
+                <clariah:explanation src="documentation"/>
             </Element>
+            <Element name="creator">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="description">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="datePublished">
+                <clariah:explanation src="documentation"/>
+            </Element>
+        </Component>
+        <Component name="ControlArea">
             <Element name="levelOfDetail">
-                <Documentation>levelOfDetail</Documentation>
-                
+                <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="DatesOfCreationRevisionOrDeletion"><!--cues--></Element>
-            <Element name="languageOfDescription"><!--cues--></Element>
-            <Element name="scriptOfDescription"><!--cues--></Element>
-            <Element name="SourcesOfInformationUsedInDescription" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>SourcesOfInformationUsedInDescription</Documentation>
+            <Element name="rulesAndOrConventionsUsed">
+                <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="maintenanceNotes" cue:inputWidth="60" cue:inputHeight="8">
-                <Documentation>maintenanceNotes</Documentation>
+            <Element name="datesOfCreationRevisionOrDeletion">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="languageOfDescription">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="scriptOfDescription">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="sourcesOfInformation">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="maintenanceNotes">
+                <clariah:explanation src="documentation"/>
             </Element>
         </Component>
     </Component>
