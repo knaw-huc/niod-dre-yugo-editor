@@ -12,18 +12,8 @@
             <clariah:autoCompleteURI>/proxy/nominatim/local</clariah:autoCompleteURI>
         </Element>
         <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
-        <Component name="IdentityArea">
-            <Element name="class">
-                <clariah:explanation src="documentation"/>
-                <ValueScheme>
-                    <Vocabulary>
-                        <enumeration>
-                            <item>Place</item>
-                        </enumeration>
-                    </Vocabulary>
-                </ValueScheme>
-            </Element>
-            <Element name="type">
+        <Component name="Identification">
+            <Element name="type" cue:hide="yes">
                 <clariah:explanation src="documentation"/>
                 <ValueScheme>
                     <Vocabulary>
@@ -44,6 +34,17 @@
                     <clariah:explanation src="documentation"/>
                 </Element>
             </Component>
+            <Component name="IdentifierExternal">
+                <Element name="label">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+                <Element name="uri">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+                <Element name="source">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+            </Component>            
         </Component>
         <Component name="Media">
             <Element name="type">
@@ -84,12 +85,15 @@
             <Element name="scriptOfDescription">
                 <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="sourcesOfInformation">
+            <Element name="sourcesOfInformation" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>
             <Element name="maintenanceNotes">
                 <clariah:explanation src="documentation"/>
             </Element>
+            <Element name="priority">
+                <clariah:explanation src="documentation"/>
+            </Element>            
         </Component>
     </Component>
 </ComponentSpec>
