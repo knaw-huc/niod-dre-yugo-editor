@@ -7,7 +7,7 @@
         <Status>development</Status>
         <DerivedFrom>clarin.eu:cr1:p_1733830015131</DerivedFrom>
     </Header>
-    <Component name="Event" CardinalityMin="1" CardinalityMax="1">
+    <Component name="Event" ConceptLink="http://www.cidoc-crm.org/cidoc-crm/E5_Event" CardinalityMin="1" CardinalityMax="1">
         <Element name="status" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
             <ValueScheme>
                 <Vocabulary>
@@ -18,12 +18,9 @@
                 </Vocabulary>
             </ValueScheme>
         </Element>
-        <Component name="IdentityArea" ComponentRef="clarin.eu:cr1:c_1721373443935" CardinalityMin="1" CardinalityMax="1">
-            <Element name="class" ConceptLink="http://www.w3.org/2000/01/rdf-schema#Class" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
-                <Documentation>It automatically encodes the type of entity/class described in this Profile.  NOTE: For Collection you still need to repeate the Level in the Collection Specific Identity Area.</Documentation>
-            </Element>
-            <Element name="type" ConceptLink="http://www.w3.org/2000/01/rdf-schema#subClassOf" CardinalityMin="1" CardinalityMax="1">
-                <Documentation>Choose the type for this entity class. For each class you may see wich types apply, some entities (e.g., Person) don't have types. Some subtypes have concept links (i.e., definitions). If you want to consult them or add more types, the tweak file has to be edited.</Documentation>
+        <Component name="Identification" ComponentRef="clarin.eu:cr1:c_1721373443935" CardinalityMin="1" CardinalityMax="1">
+            <Element name="type" ConceptLink="http://www.w3.org/2000/01/rdf-schema#subClassOf" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Documentation>Choose the type for this entity class. For each class you may see wich types apply, some entities (e.g., Person) don't have types. Some subtypes have concept links (i.e., definitions). If you want to consult them or add more types, the tweak file has to be edited. NOTE: for archival collections choose Collection for Fonds and ArchiveComponent (use for anything under Fonds), you will need to add the specific level in the Collection-specific identification area.</Documentation>
                 <ValueScheme>
                     <Vocabulary>
                         <enumeration>
@@ -32,7 +29,7 @@
                             <item ConceptLink="http://www.cidoc-crm.org/cidoc-crm/E5_Event">Event</item>
                             <item ConceptLink="http://www.cidoc-crm.org/cidoc-crm/E74_Group">Group</item>
                             <item ConceptLink="http://www.cidoc-crm.org/cidoc-crm/E21_Person">Person</item>
-                            <item>Place</item>
+                            <item ConceptLink="http://www.cidoc-crm.org/cidoc-crm/E53_Place" AppInfo="">Place</item>
                         </enumeration>
                     </Vocabulary>
                 </ValueScheme>
@@ -48,6 +45,25 @@
                     <Documentation>Used for other forms of the name (i.e., not translations but alternative forms, e.g., acronyms, nicknames, etc.). You can assign as many as you want. It's up to you to decide if the alternative form will or not be in other languages, but ALWAYS assign a language tag even if it is English.</Documentation>
                 </Element>
             </Component>
+            <Component name="IdentifierExternal" ComponentRef="clarin.eu:cr1:c_1747312582457" ConceptLink="http://www.w3.org/2002/07/owl#sameAs" CardinalityMin="0" CardinalityMax="2">
+                <Element name="label" ConceptLink="http://www.w3.org/2000/01/rdf-schema#label" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                    <Documentation>Add the preferred label that this entity has in the external source.</Documentation>
+                </Element>
+                <Element name="uri" ConceptLink="http://purl.org/dc/terms/identifier" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="2" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                    <Documentation>The complete URI in the external source (e.g., Yuguslav Wars has Wikidata URI: https://www.wikidata.org/wiki/Q242352.</Documentation>
+                </Element>
+                <Element name="source" ConceptLink="http://purl.org/dc/terms/source" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="3" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                    <Documentation>The name of the external source/knowledge base used to gather the identifier.</Documentation>
+                    <ValueScheme>
+                        <Vocabulary>
+                            <enumeration>
+                                <item ConceptLink="https://viaf.org" AppInfo="Virtual International Authority File">VIAF</item>
+                                <item ConceptLink="https://www.wikidata.org">Wikidata</item>
+                            </enumeration>
+                        </Vocabulary>
+                    </ValueScheme>
+                </Element>
+            </Component>
         </Component>
         <Component name="EventDescriptionArea" ComponentRef="clarin.eu:cr1:c_1733830015134" CardinalityMin="1" CardinalityMax="1">
             <Element name="history" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
@@ -55,10 +71,10 @@
             </Element>
             <Component name="Date" ComponentRef="clarin.eu:cr1:c_1747312582456" CardinalityMin="1" CardinalityMax="1">
                 <Documentation>https://knaw.sharepoint.com/:b:/r/sites/PRJ-DRE-Joegoslavie/Gedeelde%20documenten/General/DRE%20Database%20-%20shared%20with%20HuC/NEN-ISO%208601-2_2019%20en%20(1).pdf?csf=1&amp;web=1&amp;e=ZENSyh</Documentation>
-                <Element name="dateStart" ValueScheme="date" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Element name="dateStart" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                     <Documentation>Use this field to enter a date or the beginning of a date range. Select from the calendar. Adapt if necessary following this pattern: YYYY-MM-DD. If there are uncertainties, use these two uncertainty patterns (here with an example):  PATTERN1: 2025-??-17 (use "?" to replace uncertain values, here the day is known to be the 17th, the year is 2025 but the month is unknown).  PATTERN2: ~2025-~07 (use "~" to indicate approximate values, here it means that both the year and the month are approximate values). COMBINED example: ~2025-??-17.</Documentation>
                 </Element>
-                <Element name="dateEnd" ValueScheme="date" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="2" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Element name="dateEnd" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="2" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                     <Documentation>Use this field to enter the end date in a range. Follow the same instructions as for dateStart.</Documentation>
                 </Element>
                 <Element name="notes" ValueScheme="string" CardinalityMin="0" CardinalityMax="1">
@@ -98,9 +114,17 @@
                 </Component>
             </Component>
         </Component>
-        <Component name="Media" ComponentRef="clarin.eu:cr1:c_1747312582454" ConceptLink="" CardinalityMin="1" CardinalityMax="1">
-            <Element name="type" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+        <Component name="Media" ComponentRef="clarin.eu:cr1:c_1747312582454" ConceptLink="" CardinalityMin="0" CardinalityMax="unbounded">
+            <Element name="type" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                 <Documentation>Image or Document for now.</Documentation>
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item ConceptLink="https://schema.org/Article">Article</item>
+                            <item ConceptLink="https://schema.org/ImageObject">ImageObject</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>
             </Element>
             <Element name="fileName" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="2" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                 <Documentation>Copy/paste the file name exactly as it is.</Documentation>
@@ -138,7 +162,7 @@
             <Element name="rulesAndOrConventionsUsed" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                 <Documentation>(see ISAAR (CPF), 2nd Edition, 5.4)</Documentation>
             </Element>
-            <Element name="datesOfCreationRevisionOrDeletion" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+            <Element name="datesOfCreationRevisionOrDeletion" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                 <Documentation>(see ISAAR (CPF), 2nd Edition, 5.4)</Documentation>
             </Element>
             <Element name="languageOfDescription" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
@@ -150,8 +174,20 @@
             <Element name="sourcesOfInformation" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                 <Documentation>(see ISAAR (CPF), 2nd Edition, 5.4)</Documentation>
             </Element>
-            <Element name="maintenanceNotes" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+            <Element name="maintenanceNotes" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                 <Documentation>(see ISAAR (CPF), 2nd Edition, 5.4)</Documentation>
+            </Element>
+            <Element name="priority" CardinalityMin="1" CardinalityMax="1">
+                <Documentation>This is a field for internal use only, to indicate the level of priority for the project.</Documentation>
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item ConceptLink="" AppInfo="">High</item>
+                            <item ConceptLink="" AppInfo="">Medium</item>
+                            <item ConceptLink="" AppInfo="">Low</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>
             </Element>
         </Component>
     </Component>
