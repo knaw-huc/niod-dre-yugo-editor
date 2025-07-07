@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?><ComponentSpec xmlns:clariah="http://www.clariah.eu/" xmlns:cue="http://www.clarin.eu/cmd/cues/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2" xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd">
+    <Header>
+        <ID>clarin.eu:cr1:p_1747312582429</ID>
+        <Name>Collection</Name>
+        <Description>Collection in a collection holding institution</Description>
+        <Status>development</Status>
+    </Header>
+    <Component name="Collection">
+        <Element name="status" cue:class="status" cue:readonly="yes">
+        </Element>
+        <Component name="Identification">
+            <Element name="type">
+                <clariah:explanation src="documentation"/>
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item AppInfo="Collection" conceptLink="https://schema.org/Collection">Collection/Fonds</item>
+                            <item AppInfo="ArchiveComponent" conceptLink="https://schema.org/ArchiveComponent">ArchiveComponent</item>
+                            <item AppInfo="Article" conceptLink="https://schema.org/Article">Article</item>
+                            <item AppInfo="Blog" conceptLink="https://schema.org/Blog">Blog</item>
+                            <item AppInfo="Book" conceptLink="https://schema.org/Blog">Book</item>
+                            <item AppInfo="Chapter" conceptLink="https://schema.org/Chapter">Chapter</item>
+                            <item AppInfo="Clip" conceptLink="https://schema.org/Clip">Clip</item>
+                            <item AppInfo="Course" conceptLink="https://schema.org/Course">Course</item>
+                            <item AppInfo="Dataset" conceptLink="https://schema.org/Dataset">Dataset</item>
+                            <item AppInfo="Legislation" conceptLink="https://schema.org/Legislation">Legislation</item>
+                            <item AppInfo="Manuscript" conceptLink="https://schema.org/Manuscript">Manuscript</item>
+                            <item AppInfo="Map" conceptLink="https://schema.org/Map">Map</item>
+                            <item AppInfo="MediaObject" conceptLink="https://schema.org/MediaObject">MediaObject</item>
+                            <item AppInfo="Message" conceptLink="https://schema.org/Message">Message</item>
+                            <item AppInfo="WebSite" conceptLink="https://schema.org/WebSite">WebSite</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>                
+            </Element>
+            <Component name="Names">
+                <Element name="authorisedForm">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+                <Element name="parallelForms">
+                    <clariah:explanation src="documentation"/>                    
+                </Element>
+                <Element name="otherForms">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+            </Component>
+            <Component name="IdentifierExternal">
+                <Element name="label">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+                <Element name="uri">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+                <Element name="source">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+            </Component>            
+        </Component>
+        <Component name="CollectionSpecificIdentityArea">
+            <Element name="levelOfDescription">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="referenceCode">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="dateOfAccumulationOrCreation">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="extentAndMedium">
+                <clariah:explanation src="documentation"/>
+            </Element>
+        </Component>
+        <Component name="ContextArea">
+            <Element name="archivalHistory" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+            <Element name="immediateSourceOfAcquisitonOrTransfer" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+        </Component>
+        <Component name="ContentAndStructureArea">
+            <Element name="scopeAndContent" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+            <Element name="appraisalDestructionAndSchedulingInformation" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+            <Element name="accruals" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+            <Element name="systemOfArrangement" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+        </Component>
+        <Component name="ConditionsOfAccessAndUseArea">
+            <Element name="conditionsGoverningAccess" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+            <Element name="conditionsGoverningReproduction" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+            <Element name="languageOfMaterial" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+            <Element name="scriptOfMaterial" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+            <Element name="physicalCharacteristicsAndTechnicalRequirements" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+            <Element name="findingAids" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+        </Component>
+        <Component name="AlliedMaterialsArea">
+            <Element name="existenceAndLocationOfOriginals" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+            <Element name="existenceAndLocationOfCopies" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+            <Element name="relatedUnitOfDescription" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+            <Element name="publicationNote" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>                
+        </Component>
+        <Component name="Subject">
+            <Element name="thesaurusSubject" cue:class="skosType">
+                <clariah:autoCompleteURI>/proxy/skosmos/sd/yugothes</clariah:autoCompleteURI>
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Component name="AdditionalKeywords">
+                <Element name="label">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+                <Element name="uri">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+            </Component>
+        </Component>
+        <Component name="RelationshipArea">
+            <Component name="ToCollectionHoldingInstitution">
+                <Component name="Relationship">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443934/entity/institution</clariah:autoCompleteURI>
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                    <Element name="category">
+                        <clariah:explanation src="documentation"/>
+                        <ValueScheme>
+                            <Vocabulary>
+                                <enumeration>
+                                    <item>belongs to</item>
+                                </enumeration>
+                            </Vocabulary>
+                        </ValueScheme>
+                    </Element>
+                    <Element name="description">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                    <Element name="date">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                </Component>
+            </Component>
+            <Component name="ToCollection">
+                <Component name="Relationship">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582429/entity/collection</clariah:autoCompleteURI>
+                    </Element>
+                    <Element name="category">
+                        <ValueScheme>
+                            <Vocabulary>
+                                <enumeration>
+                                    <item>is part of</item>
+                                </enumeration>
+                            </Vocabulary>
+                        </ValueScheme>
+                    </Element>
+                    <Element name="description"><!--cues--></Element>
+                    <Element name="date"><!--cues--></Element>
+                </Component>
+            </Component>
+            <Component name="ToGroup">
+                <Component name="Relationship" CardinalityMin="1" CardinalityMax="0">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582450/entity/group</clariah:autoCompleteURI>
+                    </Element>
+                    <Element name="category">
+                        <ValueScheme>
+                            <Vocabulary>
+                                <enumeration>
+                                    <item>is about</item>
+                                </enumeration>
+                            </Vocabulary>
+                        </ValueScheme>
+                    </Element>
+                    <Element name="description">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                    <Element name="date">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                </Component>
+            </Component>
+            <Component name="ToPerson">
+                <Component name="Relationship" CardinalityMin="1" CardinalityMax="0">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1721373443955/entity/person</clariah:autoCompleteURI>
+                    </Element>
+                    <Element name="category">
+                        <ValueScheme>
+                            <Vocabulary>
+                                <enumeration>
+                                    <item>is about</item>
+                                </enumeration>
+                            </Vocabulary>
+                        </ValueScheme>
+                    </Element>
+                    <Element name="description">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                    <Element name="date">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                </Component>
+            </Component>
+            <Component name="ToPlace">
+                <Component name="Relationship" CardinalityMin="1" CardinalityMax="0">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1744616237113/entity/place</clariah:autoCompleteURI>
+                    </Element>
+                    <Element name="category">
+                        <ValueScheme>
+                            <Vocabulary>
+                                <enumeration>
+                                    <item>is about</item>
+                                </enumeration>
+                            </Vocabulary>
+                        </ValueScheme>
+                    </Element>
+                    <Element name="description">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                    <Element name="date">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                </Component>
+            </Component>
+            <Component name="ToEvent">
+                <Component name="Relationship" CardinalityMin="1" CardinalityMax="0">
+                    <Element name="to" cue:class="skosType">
+                        <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1733830015132/entity/event</clariah:autoCompleteURI>
+                    </Element>
+                    <Element name="category">
+                        <ValueScheme>
+                            <Vocabulary>
+                                <enumeration>
+                                    <item>is about</item>
+                                </enumeration>
+                            </Vocabulary>
+                        </ValueScheme>
+                    </Element>
+                    <Element name="description">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                    <Element name="date">
+                        <clariah:explanation src="documentation"/>
+                    </Element>
+                </Component>
+            </Component>
+        </Component>
+        <Component name="Media">
+            <Element name="type">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="fileName">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="name">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="encodingFormat">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="creator">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="description">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="datePublished">
+                <clariah:explanation src="documentation"/>
+            </Element>
+        </Component>
+        <Component name="ControlArea">
+            <Element name="levelOfDetail">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="rulesAndOrConventionsUsed">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="datesOfCreationRevisionOrDeletion">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="languageOfDescription">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="scriptOfDescription">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="sourcesOfInformation" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="maintenanceNotes">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="priority">
+                <clariah:explanation src="documentation"/>
+            </Element>            
+        </Component>
+    </Component>
+</ComponentSpec>
