@@ -7,17 +7,7 @@
     </Header>
     <Component name="CollectionHoldingInstitution">
         <Element name="status" cue:class="status" cue:readonly="yes"></Element>
-        <Component name="IdentityArea">
-            <Element name="class">
-                <clariah:explanation src="documentation"/>
-                <ValueScheme>
-                    <Vocabulary>
-                        <enumeration>
-                            <item>CollectionHoldingInstitution</item>
-                        </enumeration>
-                    </Vocabulary>
-                </ValueScheme>
-            </Element>
+        <Component name="Identification">
             <Element name="type">
                 <clariah:explanation src="documentation"/>
                 <ValueScheme>
@@ -42,6 +32,17 @@
                     <clariah:explanation src="documentation"/>
                 </Element>
                 <Element name="otherForms">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+            </Component>
+            <Component name="IdentifierExternal">
+                <Element name="label">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+                <Element name="uri">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+                <Element name="source">
                     <clariah:explanation src="documentation"/>
                 </Element>
             </Component>
@@ -188,10 +189,13 @@
             <Element name="scriptOfDescription">
                 <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="sourcesOfInformation">
+            <Element name="sourcesOfInformation" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>
             <Element name="maintenanceNotes">
+                <clariah:explanation src="documentation"/>
+            </Element>
+            <Element name="priority">
                 <clariah:explanation src="documentation"/>
             </Element>
         </Component>
