@@ -18,7 +18,7 @@ write="users"
 [app.html]
 style="yugo.css"
 
-# CollectionHoldingInstitutions
+# COLLECTION HOLDING INSTITUTIONS
 
 [app.prof.institution]
 prof="clarin.eu:cr1:p_1721373443934"
@@ -41,7 +41,7 @@ sort="true"
 filter="true"
 
 [app.prof.institution.list.type]
-xpath="string(//cmdp:typeOfInstitution)"
+xpath="string(//cmdp:Identification/cmdp:type)"
 label="type"
 sort="true"
 filter="'select'"
@@ -52,14 +52,20 @@ label="status"
 sort="true"
 filter="'select'"
 
-# Collection
+[app.prof.institution.list.levelOfDetail]
+xpath="string(//cmdp:ControlArea/cmdp:levelOfDetail)"
+label="levelOfDetail"
+sort="true"
+filter="'select'"
+
+# COLLECTION
 
 [app.prof.collection]
 prof="clarin.eu:cr1:p_1747312582429"
 label_en="collection"
 label_plural_en="collections"
 entity="//cmdp:Collection"
-title="string((//cmdp:AuthorizedFormOfTitle[@xml:lang='en'],//cmdp:AuthorizedFormOfTitle)[1])"
+title="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
 
 [app.prof.collection.list.nr]
 xpath="replace(//*:MdSelfLink,'unl://','')"
@@ -68,10 +74,22 @@ sort="true"
 filter="true"
 
 [app.prof.collection.list.name]
-xpath="string((//cmdp:AuthorizedFormOfTitle[@xml:lang='en'],//cmdp:AuthorizedFormOfTitle)[1])"
+xpath="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
 label="authorised form"
 sort="true"
 filter="true"
+
+[app.prof.collection.list.referenceCode]
+xpath="string(//cmdp:CollectionSpecificIdentityArea/cmdp:referenceCode)"
+label="referenceCode"
+sort="true"
+filter="'select'"
+
+[app.prof.collection.list.type]
+xpath="string(//cmdp:Identification/cmdp:type)"
+label="type"
+sort="true"
+filter="'select'"
 
 [app.prof.collection.list.status]
 xpath="string(//cmdp:status)"
@@ -79,13 +97,19 @@ label="status"
 sort="true"
 filter="'select'"
 
-# Places
+[app.prof.collection.list.levelOfDetail]
+xpath="string(//cmdp:ControlArea/cmdp:levelOfDetail)"
+label="levelOfDetail"
+sort="true"
+filter="'select'"
+
+# PLACES
 
 [app.prof.place]
 prof="clarin.eu:cr1:p_1744616237113"
 label_en="place"
 label_plural_en="places"
-title="string((//cmdp:dreAuthorizedFormOfName[@xml:lang='en'],//cmdp:dreAuthorizedFormOfName)[1])"
+title="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
 
 [app.prof.place.list.nr]
 xpath="replace(//*:MdSelfLink,'unl://','')"
@@ -94,10 +118,16 @@ sort="true"
 filter="true"
 
 [app.prof.place.list.name]
-xpath="string((//cmdp:dreAuthorizedFormOfName[@xml:lang='en'],//cmdp:dreAuthorizedFormOfName)[1])"
+xpath="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
 label="authorised form"
 sort="true"
 filter="true"
+
+#[app.prof.place.list.type]
+#xpath="string(//cmdp:Identification/cmdp:type)"
+#label="type"
+#sort="true"
+#filter="'select'"
 
 [app.prof.place.list.status]
 xpath="string(//cmdp:status)"
@@ -105,13 +135,19 @@ label="status"
 sort="true"
 filter="'select'"
 
-# CorporateBodiesPersonsFamilies
+[app.prof.place.list.levelOfDetail]
+xpath="string(//cmdp:ControlArea/cmdp:levelOfDetail)"
+label="levelOfDetail"
+sort="true"
+filter="'select'"
+
+# PERSON
 
 [app.prof.person]
 prof="clarin.eu:cr1:p_1721373443955"
-label_en="personality"
-label_plural_en="personalities"
-title="string((//cmdp:authorizedFormOfName[@xml:lang='en'],//cmdp:authorizedFormOfName)[1])"
+label_en="person"
+label_plural_en="persons"
+title="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
 #html="person-toHTML.xsl"
 
 [app.prof.person.list.nr]
@@ -121,16 +157,16 @@ sort="true"
 filter="true"
 
 [app.prof.person.list.name]
-xpath="string((//cmdp:authorizedFormOfName[@xml:lang='en'],//cmdp:authorizedFormOfName)[1])"
+xpath="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
 label="authorised form"
 sort="true"
 filter="true"
 
-[app.prof.person.list.type]
-xpath="string(//cmdp:typeOfPersonality)"
-label="type"
-sort="true"
-filter="'select'"
+#[app.prof.person.list.type]
+#xpath="string(//cmdp:Identification/cmdp:type)"
+#label="type"
+#sort="true"
+#filter="'select'"
 
 [app.prof.person.list.status]
 xpath="string(//cmdp:status)"
@@ -138,13 +174,57 @@ label="status"
 sort="true"
 filter="'select'"
 
-# Events
+[app.prof.person.list.levelOfDetail]
+xpath="string(//cmdp:ControlArea/cmdp:levelOfDetail)"
+label="levelOfDetail"
+sort="true"
+filter="'select'"
+
+# GROUP
+[app.prof.group]
+prof="clarin.eu:cr1:p_1747312582450"
+label_en="group"
+label_plural_en="group"
+title="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
+#html="person-toHTML.xsl"
+
+[app.prof.group.list.nr]
+xpath="replace(//*:MdSelfLink,'unl://','')"
+label="nr"
+sort="true"
+filter="true"
+
+[app.prof.group.list.name]
+xpath="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
+label="authorised form"
+sort="true"
+filter="true"
+
+#[app.prof.group.list.type]
+#xpath="string(//cmdp:Identification/cmdp:type)"
+#label="type"
+#sort="true"
+#filter="'select'"
+
+[app.prof.group.list.status]
+xpath="string(//cmdp:status)"
+label="status"
+sort="true"
+filter="'select'"
+
+[app.prof.group.list.levelOfDetail]
+xpath="string(//cmdp:ControlArea/cmdp:levelOfDetail)"
+label="levelOfDetail"
+sort="true"
+filter="'select'"
+
+# EVENTS
 
 [app.prof.event]
 prof="clarin.eu:cr1:p_1733830015132"
 label_en="event"
 label_plural_en="events"
-title="string((//cmdp:AuthorizedFormOfName[@xml:lang='en'],//cmdp:AuthorizedFormOfName)[1])"
+title="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
 
 [app.prof.event.list.nr]
 xpath="replace(//*:MdSelfLink,'unl://','')"
@@ -153,10 +233,16 @@ sort="true"
 filter="true"
 
 [app.prof.event.list.name]
-xpath="string((//cmdp:AuthorizedFormOfName[@xml:lang='en'],//cmdp:AuthorizedFormOfName)[1])"
+xpath="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
 label="authorised form"
 sort="true"
 filter="true"
+
+[app.prof.event.list.type]
+xpath="string(//cmdp:Identification/cmdp:type)"
+label="type"
+sort="true"
+filter="'select'"
 
 [app.prof.event.list.status]
 xpath="string(//cmdp:status)"
@@ -164,28 +250,34 @@ label="status"
 sort="true"
 filter="'select'"
 
-# Concepts
-
-[app.prof.concept]
-prof="clarin.eu:cr1:p_1721373443967"
-label_en="concept"
-label_plural_en="concepts"
-title="string(//cmdp:preferredTerm)"
-
-[app.prof.concept.list.nr]
-xpath="replace(//*:MdSelfLink,'unl://','')"
-label="nr"
-sort="true"
-filter="true"
-
-[app.prof.concept.list.term]
-xpath="string(//cmdp:preferredTerm)"
-label="term"
-sort="true"
-filter="true"
-
-[app.prof.concept.list.status]
-xpath="string(//cmdp:status)"
-label="status"
+[app.prof.event.list.levelOfDetail]
+xpath="string(//cmdp:ControlArea/cmdp:levelOfDetail)"
+label="levelOfDetail"
 sort="true"
 filter="'select'"
+
+
+## Concepts
+#[app.prof.concept]
+#prof="clarin.eu:cr1:p_1721373443967"
+#label_en="concept"
+#label_plural_en="concepts"
+#title="string(//cmdp:preferredTerm)"
+#
+#[app.prof.concept.list.nr]
+#xpath="replace(//*:MdSelfLink,'unl://','')"
+#label="nr"
+#sort="true"
+#filter="true"
+#
+#[app.prof.concept.list.term]
+#xpath="string(//cmdp:preferredTerm)"
+#label="term"
+#sort="true"
+#filter="true"
+#
+#[app.prof.concept.list.status]
+#xpath="string(//cmdp:status)"
+#label="status"
+#sort="true"
+#filter="'select'"
