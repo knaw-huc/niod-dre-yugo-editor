@@ -9,17 +9,7 @@
     <Component name="Group">
         <Element name="status" cue:class="status" cue:readonly="yes">
         </Element>
-        <Component name="IdentityArea">
-            <Element name="class">
-                <clariah:explanation src="documentation"/>
-                <ValueScheme>
-                    <Vocabulary>
-                        <enumeration>
-                            <item>Group</item>
-                        </enumeration>
-                    </Vocabulary>
-                </ValueScheme>
-            </Element>
+        <Component name="Identification">
             <Element name="type">
                 <clariah:explanation src="documentation"/>
                 <ValueScheme>
@@ -43,6 +33,17 @@
                     <clariah:explanation src="documentation"/>
                 </Element>
             </Component>
+            <Component name="IdentifierExternal">
+                <Element name="label">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+                <Element name="uri">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+                <Element name="source">
+                    <clariah:explanation src="documentation"/>
+                </Element>
+            </Component>            
         </Component>
         <Component name="ActorDescriptionArea">
             <Component name="DatesOfExistence">
@@ -55,22 +56,22 @@
                     </Element>
                 </Component>
             </Component>
-            <Element name="history">
+            <Element name="history" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>
             <Element name="nationality">
                 <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="functionsOccupationsAndActivities">
+            <Element name="functionsOccupationsAndActivities" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="mandatesSourcesOfAuthority">
+            <Element name="mandatesSourcesOfAuthority" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="internalStructuresOrGenealogy">
+            <Element name="internalStructuresOrGenealogy" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="generalContext">
+            <Element name="generalContext" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>
         </Component>
@@ -89,7 +90,7 @@
                             </Vocabulary>
                         </ValueScheme>
                     </Element>
-                    <Element name="description">
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8">
                         <clariah:explanation src="documentation"/>
                     </Element>
                     <Element name="date">
@@ -111,7 +112,7 @@
                             </Vocabulary>
                         </ValueScheme>
                     </Element>
-                    <Element name="description">
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8">
                         <clariah:explanation src="documentation"/>
                     </Element>
                     <Element name="date">
@@ -159,12 +160,15 @@
             <Element name="scriptOfDescription">
                 <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="sourcesOfInformation">
+            <Element name="sourcesOfInformation" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>
             <Element name="maintenanceNotes">
                 <clariah:explanation src="documentation"/>
             </Element>
+            <Element name="priority">
+                <clariah:explanation src="documentation"/>
+            </Element>            
         </Component>
     </Component>
 </ComponentSpec>
