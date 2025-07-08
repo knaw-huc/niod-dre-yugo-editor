@@ -53,22 +53,22 @@
                     </Element>
                 </Component>
             </Component>
-            <Element name="history">
+            <Element name="history" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>
             <Element name="nationality">
                 <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="functionsOccupationsAndActivities">
+            <Element name="functionsOccupationsAndActivities" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="mandatesSourcesOfAuthority">
+            <Element name="mandatesSourcesOfAuthority" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="internalStructuresOrGenealogy">
+            <Element name="internalStructuresOrGenealogy" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>
-            <Element name="generalContext">
+            <Element name="generalContext" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>
         </Component>
@@ -87,7 +87,7 @@
                             </Vocabulary>
                         </ValueScheme>
                     </Element>
-                    <Element name="description">
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8">
                         <clariah:explanation src="documentation"/>
                     </Element>
                     <Element name="date">
@@ -109,7 +109,7 @@
                             </Vocabulary>
                         </ValueScheme>
                     </Element>
-                    <Element name="description">
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8">
                         <clariah:explanation src="documentation"/>
                     </Element>
                     <Element name="date">
@@ -131,7 +131,7 @@
                             </Vocabulary>
                         </ValueScheme>
                     </Element>
-                    <Element name="description">
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8">
                         <clariah:explanation src="documentation"/>
                     </Element>
                     <Element name="date">
