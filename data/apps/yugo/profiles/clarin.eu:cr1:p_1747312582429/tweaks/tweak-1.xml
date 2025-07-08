@@ -157,7 +157,7 @@
                             </Vocabulary>
                         </ValueScheme>
                     </Element>
-                    <Element name="description">
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8">
                         <clariah:explanation src="documentation"/>
                     </Element>
                     <Element name="date">
@@ -179,7 +179,7 @@
                             </Vocabulary>
                         </ValueScheme>
                     </Element>
-                    <Element name="description"><!--cues--></Element>
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
                     <Element name="date"><!--cues--></Element>
                 </Component>
             </Component>
@@ -197,7 +197,7 @@
                             </Vocabulary>
                         </ValueScheme>
                     </Element>
-                    <Element name="description">
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8">
                         <clariah:explanation src="documentation"/>
                     </Element>
                     <Element name="date">
@@ -219,7 +219,7 @@
                             </Vocabulary>
                         </ValueScheme>
                     </Element>
-                    <Element name="description">
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8">
                         <clariah:explanation src="documentation"/>
                     </Element>
                     <Element name="date">
@@ -241,7 +241,7 @@
                             </Vocabulary>
                         </ValueScheme>
                     </Element>
-                    <Element name="description">
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8">
                         <clariah:explanation src="documentation"/>
                     </Element>
                     <Element name="date">
@@ -263,7 +263,7 @@
                             </Vocabulary>
                         </ValueScheme>
                     </Element>
-                    <Element name="description">
+                    <Element name="description" cue:inputWidth="60" cue:inputHeight="8">
                         <clariah:explanation src="documentation"/>
                     </Element>
                     <Element name="date">
