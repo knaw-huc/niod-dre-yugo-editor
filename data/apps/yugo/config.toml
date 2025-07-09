@@ -206,11 +206,11 @@ label="authorised form"
 sort="true"
 filter="true"
 
-#[app.prof.group.list.type]
-#xpath="string(//cmdp:Identification/cmdp:type)"
-#label="type"
-#sort="true"
-#filter="'select'"
+[app.prof.group.list.type]
+xpath="string(//cmdp:Identification/cmdp:type)"
+label="type"
+sort="true"
+filter="'select'"
 
 [app.prof.group.list.status]
 xpath="string(//cmdp:status)"
