@@ -67,7 +67,7 @@
         <Component name="CollectionSpecificIdentityArea" CardinalityMin="1" CardinalityMax="1">
             <Documentation>Information about collection/fonds/archive</Documentation>
             <Element name="levelOfDescription" ConceptLink="https://schema.org/additionalType" CardinalityMin="0" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
-                <Documentation>To identify the level of arrangement of the unit of description.</Documentation>
+                <Documentation>To identify the level of arrangement of the unit of description. ONLY USE if this is an archival collection with hierarcy (if this is a collection without hierarchy, or another type of collection, select N/A and choose the type under "type" in the Identification area at the top).</Documentation>
                 <ValueScheme>
                     <Vocabulary>
                         <enumeration>
@@ -78,6 +78,7 @@
                             <item ConceptLink="https://www.ica.org/standards/RiC/ontology#RecordSet" AppInfo="Sub-series">Sub-series</item>
                             <item ConceptLink="https://www.ica.org/standards/RiC/ontology#RecordSet" AppInfo="File">File</item>
                             <item ConceptLink="https://www.ica.org/standards/RiC/ontology#Record" AppInfo="Item">Item</item>
+                            <item AppInfo="">N/A</item>
                         </enumeration>
                     </Vocabulary>
                 </ValueScheme>
