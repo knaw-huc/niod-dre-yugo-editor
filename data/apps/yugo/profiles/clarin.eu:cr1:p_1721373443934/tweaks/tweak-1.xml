@@ -184,9 +184,23 @@
                 <clariah:explanation src="documentation"/>
             </Element>
             <Element name="languageOfDescription">
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item AppInfo="English" conceptLink="">en</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>
                 <clariah:explanation src="documentation"/>
             </Element>
             <Element name="scriptOfDescription">
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item AppInfo="Latin" conceptLink="">la</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>
                 <clariah:explanation src="documentation"/>
             </Element>
             <Element name="sourcesOfInformation" cue:inputWidth="60" cue:inputHeight="8">
