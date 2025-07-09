@@ -4,10 +4,10 @@ services:
   sd-editor:
     #image: ghcr.io/knaw-huc/service-huc-editor:2.0-RC5
     image: registry.diginfra.net/tsd/huc-editor-services:2.0-RC8-alpha
-    entrypoint: sh -c 'sleep 300  && python src/main.py'
-    #entrypoint: sh -c 'python src/main.py'
-    depends_on:
-      - nominatim
+#    entrypoint: [ "sh", "-c", "sleep 90 && python src/main.py" ]
+    entrypoint: ['sh', '-c', 'python src/main.py']
+#    depends_on:
+#      - nominatim
     environment:
       - BASE_URL=http://localhost:1211
       - CDN_URL=http://localhost:1310
@@ -18,18 +18,18 @@ services:
     ports:
       - '1211:1210'
   
-  nominatim:
-    image: mediagis/nominatim:5.1
-    environment:
-      - PBF_URL=https://download.geofabrik.de/europe/croatia-latest.osm.pbf
-      - REPLICATION_URL=https://download.geofabrik.de/europe/croatia-updates
-      #- PBF_PATH=/home/huc/huc-editor-service/data/osm/europe-latest.osm.pbf
-    #volumes:
-      #- ./data:/home/huc/huc-editor-service/data
-    networks:
-      - sd-editor
-    ports:
-      - 1311:8080
+#  nominatim:
+#    image: mediagis/nominatim:5.1
+#    environment:
+#      - PBF_URL=https://download.geofabrik.de/europe/croatia-latest.osm.pbf
+#      - REPLICATION_URL=https://download.geofabrik.de/europe/croatia-updates
+#      #- PBF_PATH=/home/huc/huc-editor-service/data/osm/europe-latest.osm.pbf
+#    #volumes:
+#      #- ./data:/home/huc/huc-editor-service/data
+#    networks:
+#      - sd-editor
+#    ports:
+#      - 1311:8080
 
   sd-editor-cdn:
     image: registry.diginfra.net/tsd/huc-generic-editor:1.3-RC4-alpha
