@@ -134,10 +134,10 @@
                 <Documentation>(see ISAD(G) for instructions)</Documentation>
             </Element>
             <Element name="languageOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
-                <Documentation>(see ISAD(G) for instructions)</Documentation>
+                <Documentation>(see ISAD(G) for instructions). This field works with an external vocabulary for languages (start typing the language and select).</Documentation>
             </Element>
             <Element name="scriptOfMaterial" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded">
-                <Documentation>(see ISAD(G) for instructions)</Documentation>
+                <Documentation>(see ISAD(G) for instructions). This field works with an external vocabulary for languages (start typing the language and select).</Documentation>
             </Element>
             <Element name="physicalCharacteristicsAndTechnicalRequirements" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true">
                 <Documentation>(see ISAD(G) for instructions)</Documentation>

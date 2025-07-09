@@ -99,10 +99,12 @@
             <Element name="conditionsGoverningReproduction" cue:inputWidth="60" cue:inputHeight="8">
                 <clariah:explanation src="documentation"/>
             </Element>                
-            <Element name="languageOfMaterial" cue:inputWidth="60" cue:inputHeight="8">
+            <Element name="languageOfMaterial">
+                <clariah:autoCompleteURI>/proxy/skosmos/clavas/ISO639-3/</clariah:autoCompleteURI>
                 <clariah:explanation src="documentation"/>
             </Element>                
-            <Element name="scriptOfMaterial" cue:inputWidth="60" cue:inputHeight="8">
+            <Element name="scriptOfMaterial">
+                <clariah:autoCompleteURI>/proxy/skosmos/clavas/ISO639-3/</clariah:autoCompleteURI>
                 <clariah:explanation src="documentation"/>
             </Element>                
             <Element name="physicalCharacteristicsAndTechnicalRequirements" cue:inputWidth="60" cue:inputHeight="8">
@@ -306,9 +308,23 @@
                 <clariah:explanation src="documentation"/>
             </Element>
             <Element name="languageOfDescription">
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item AppInfo="English" conceptLink="">en</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>
                 <clariah:explanation src="documentation"/>
             </Element>
             <Element name="scriptOfDescription">
+                <ValueScheme>
+                    <Vocabulary>
+                        <enumeration>
+                            <item AppInfo="Latin" conceptLink="">la</item>
+                        </enumeration>
+                    </Vocabulary>
+                </ValueScheme>
                 <clariah:explanation src="documentation"/>
             </Element>
             <Element name="sourcesOfInformation" cue:inputWidth="60" cue:inputHeight="8">
