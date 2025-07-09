@@ -91,6 +91,12 @@ label="type"
 sort="true"
 filter="'select'"
 
+[app.prof.collection.list.levelOfDescription]
+xpath="string(//cmdp:CollectionSpecificIdentityArea/cmdp:levelOfDescription)"
+label="levelOfDescription"
+sort="true"
+filter="'select'"
+
 [app.prof.collection.list.status]
 xpath="string(//cmdp:status)"
 label="status"
