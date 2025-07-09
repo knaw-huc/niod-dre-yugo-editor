@@ -147,6 +147,12 @@ label="levelOfDetail"
 sort="true"
 filter="'select'"
 
+[app.prof.place.list.osmIdentifier]
+xpath="string(//cmdp:osmIdentifier)"
+label="osmIdentifier"
+sort="true"
+filter="'select'"
+
 # PERSON
 
 [app.prof.person]
