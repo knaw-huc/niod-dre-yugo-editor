@@ -100,11 +100,11 @@
                 <clariah:explanation src="documentation"/>
             </Element>                
             <Element name="languageOfMaterial">
-                <clariah:autoCompleteURI>/proxy/skosmos/clavas/ISO639-3/</clariah:autoCompleteURI>
+                <clariah:autoCompleteURI>/proxy/skosmos/clavas/ISO639-3</clariah:autoCompleteURI>
                 <clariah:explanation src="documentation"/>
             </Element>                
             <Element name="scriptOfMaterial">
-                <clariah:autoCompleteURI>/proxy/skosmos/clavas/ISO639-3/</clariah:autoCompleteURI>
+                <clariah:autoCompleteURI>/proxy/skosmos/clavas/ISO639-3</clariah:autoCompleteURI>
                 <clariah:explanation src="documentation"/>
             </Element>                
             <Element name="physicalCharacteristicsAndTechnicalRequirements" cue:inputWidth="60" cue:inputHeight="8">
