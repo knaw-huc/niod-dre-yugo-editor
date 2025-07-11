@@ -7,11 +7,6 @@
     </Header>
     <Component name="Place">
         <Element name="status" cue:class="status" cue:readonly="yes"></Element>
-        <Element name="osmIdentifier">
-            <clariah:explanation src="documentation"/>
-            <clariah:autoCompleteURI>/proxy/nominatim/local</clariah:autoCompleteURI>
-        </Element>
-        <Element name="description" cue:inputWidth="60" cue:inputHeight="8"><!--cues--></Element>
         <Component name="Identification">
             <Element name="type" cue:hide="yes">
                 <clariah:explanation src="documentation"/>
@@ -34,7 +29,7 @@
                     <clariah:explanation src="documentation"/>
                 </Element>
             </Component>
-            <Component name="IdentifierExternal">
+            <Component name="IdentifierExternal" CardinalityMin="1" CardinalityMax="1">
                 <Element name="label">
                     <clariah:explanation src="documentation"/>
                 </Element>
@@ -43,8 +38,20 @@
                 </Element>
                 <Element name="source">
                     <clariah:explanation src="documentation"/>
+                    <ValueScheme>
+                        <Vocabulary>
+                            <enumeration>
+                                <item>OpenStreetMaps</item>
+                            </enumeration>
+                        </Vocabulary>
+                    </ValueScheme>
                 </Element>
             </Component>            
+        </Component>
+        <Component name="PlaceDescriptionArea">
+            <Element name="description" cue:inputWidth="60" cue:inputHeight="8">
+                <clariah:explanation src="documentation"/>
+            </Element>
         </Component>
         <Component name="Media">
             <Element name="type">
