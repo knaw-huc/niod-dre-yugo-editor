@@ -293,3 +293,10 @@ filter="'select'"
 #label="status"
 #sort="true"
 #filter="'select'"
+
+
+[app.hooks.action.browser]
+level="none"
+label="browser"
+endpoint="browser"
+hook="browser"
