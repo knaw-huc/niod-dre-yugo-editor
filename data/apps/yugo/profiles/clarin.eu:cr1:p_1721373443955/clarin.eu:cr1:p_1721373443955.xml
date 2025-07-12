@@ -49,16 +49,17 @@
                 <Element name="label" ConceptLink="http://www.w3.org/2000/01/rdf-schema#label" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                     <Documentation>Add the preferred label that this entity has in the external source.</Documentation>
                 </Element>
-                <Element name="uri" ConceptLink="http://purl.org/dc/terms/identifier" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="2" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Element name="uri" ConceptLink="http://purl.org/dc/terms/identifier" ValueScheme="anyURI" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="2" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                     <Documentation>The complete URI in the external source (e.g., Yuguslav Wars has Wikidata URI: https://www.wikidata.org/wiki/Q242352.</Documentation>
                 </Element>
                 <Element name="source" ConceptLink="http://purl.org/dc/terms/source" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="3" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
-                    <Documentation>The name of the external source/knowledge base used to gather the identifier.</Documentation>
+                    <Documentation>The name of the external source/knowledge base used to gather the identifier. If it is OpenStreetMaps: Enter the URI from OpenStreetMap API. You can search directly in OpenStreetMaps and paste the URI here. The URI has to have this format, for example: https://www.openstreetmap.org/relation/214885 (note the type in the middle: relation, node,  way)</Documentation>
                     <ValueScheme>
                         <Vocabulary>
                             <enumeration>
                                 <item ConceptLink="https://viaf.org" AppInfo="Virtual International Authority File">VIAF</item>
                                 <item ConceptLink="https://www.wikidata.org">Wikidata</item>
+                                <item ConceptLink="https://www.openstreetmap.org/relation" AppInfo="">OpenStreetMaps</item>
                             </enumeration>
                         </Vocabulary>
                     </ValueScheme>

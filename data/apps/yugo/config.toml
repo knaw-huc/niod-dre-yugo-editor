@@ -109,50 +109,6 @@ label="levelOfDetail"
 sort="true"
 filter="'select'"
 
-# PLACES
-
-[app.prof.place]
-prof="clarin.eu:cr1:p_1744616237113"
-label_en="place"
-label_plural_en="places"
-title="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
-
-[app.prof.place.list.nr]
-xpath="replace(//*:MdSelfLink,'unl://','')"
-label="nr"
-sort="true"
-filter="true"
-
-[app.prof.place.list.name]
-xpath="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
-label="authorised form"
-sort="true"
-filter="true"
-
-#[app.prof.place.list.type]
-#xpath="string(//cmdp:Identification/cmdp:type)"
-#label="type"
-#sort="true"
-#filter="'select'"
-
-[app.prof.place.list.status]
-xpath="string(//cmdp:status)"
-label="status"
-sort="true"
-filter="'select'"
-
-[app.prof.place.list.levelOfDetail]
-xpath="string(//cmdp:ControlArea/cmdp:levelOfDetail)"
-label="levelOfDetail"
-sort="true"
-filter="'select'"
-
-[app.prof.place.list.osmIdentifier]
-xpath="string(//cmdp:osmIdentifier)"
-label="osmIdentifier"
-sort="true"
-filter="'select'"
-
 # PERSON
 
 [app.prof.person]
@@ -268,6 +224,49 @@ label="levelOfDetail"
 sort="true"
 filter="'select'"
 
+# PLACES
+
+[app.prof.place]
+prof="clarin.eu:cr1:p_1744616237113"
+label_en="place"
+label_plural_en="places"
+title="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
+
+[app.prof.place.list.nr]
+xpath="replace(//*:MdSelfLink,'unl://','')"
+label="nr"
+sort="true"
+filter="true"
+
+[app.prof.place.list.name]
+xpath="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
+label="authorised form"
+sort="true"
+filter="true"
+
+#[app.prof.place.list.type]
+#xpath="string(//cmdp:Identification/cmdp:type)"
+#label="type"
+#sort="true"
+#filter="'select'"
+
+[app.prof.place.list.status]
+xpath="string(//cmdp:status)"
+label="status"
+sort="true"
+filter="'select'"
+
+[app.prof.place.list.levelOfDetail]
+xpath="string(//cmdp:ControlArea/cmdp:levelOfDetail)"
+label="levelOfDetail"
+sort="true"
+filter="'select'"
+
+[app.prof.place.list.osmIdentifier]
+xpath="string(//cmdp:osmIdentifier)"
+label="osmIdentifier"
+sort="true"
+filter="'select'"
 
 ## Concepts
 #[app.prof.concept]
