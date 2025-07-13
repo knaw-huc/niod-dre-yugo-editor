@@ -293,9 +293,14 @@ filter="'select'"
 #sort="true"
 #filter="'select'"
 
-
 [app.hooks.action.browser]
 level="none"
 label="browser"
 endpoint="browser"
 hook="browser"
+
+[app.hooks.action.graph]
+level="app"
+label="graph"
+endpoint="graph"
+hook="graph"
