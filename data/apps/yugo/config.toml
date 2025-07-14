@@ -294,7 +294,7 @@ filter="'select'"
 #filter="'select'"
 
 [app.hooks.action.browser]
-level="rec"
+level="none"
 label="browser"
 endpoint="browser"
 hook="browser"
