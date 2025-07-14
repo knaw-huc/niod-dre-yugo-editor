@@ -139,6 +139,22 @@
                                 </span>
                             </div>
                         </xsl:for-each>
+                        <xsl:variable name="id" select="replace($rec//*:MdSelfLink,'unl://','')"/>
+                        <xsl:variable name="ent" select="local-name($rec//*:Components/*)"/>
+                        <xsl:choose>
+                            <xsl:when test="$ent='CollectionHoldingInstitution'">
+                                <xsl:apply-templates select="$graph//collectionHierarchy/institution[@id=$id]" mode="yourehere">
+                                    <xsl:with-param name="here" select="$id" tunnel="yes"/>
+                                    <xsl:with-param name="ent" select="'institution'" tunnel="yes"/>
+                                </xsl:apply-templates>
+                            </xsl:when>
+                            <xsl:when test="$ent='Collection'">
+                                <xsl:apply-templates select="$graph//collectionHierarchy/institution[.//collection[@id=$id]]" mode="yourehere">
+                                    <xsl:with-param name="here" select="$id" tunnel="yes"/>
+                                    <xsl:with-param name="ent" select="'collection'" tunnel="yes"/>
+                                </xsl:apply-templates>
+                            </xsl:when>
+                        </xsl:choose>
 <!--                        <dl>
 -->                            <xsl:apply-templates select="/*:CMD/*:Components/*">
                                 <xsl:with-param name="tweak" select="$tweak-doc/ComponentSpec"/>
@@ -147,6 +163,37 @@
                     </div>
                 <!--</body>
         </html>-->
+    </xsl:template>
+    
+    <xsl:template match="*" mode="yourehere">
+        <xsl:param name="here" tunnel="yes"/>
+        <xsl:param name="ent" tunnel="yes"/>
+        <dl>
+            <dt>
+                <xsl:choose>
+                    <xsl:when test="@id=$here and $ent=local-name()">
+                        <span class="here">&#160;</span>
+                        <xsl:value-of select="@title"/>
+                        <span class="ent">
+                            <xsl:value-of select="local-name()"/>
+                        </span>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <a href="/{local-name()}_detail/{@id}">
+                            <xsl:value-of select="@title"/>
+                        </a>
+                        <span class="ent">
+                            <xsl:value-of select="local-name()"/>
+                        </span>                        
+                    </xsl:otherwise>
+                </xsl:choose>
+            </dt>
+            <dd>
+                <dl>
+                    <xsl:apply-templates mode="#current"/>
+                </dl>
+            </dd>
+        </dl>
     </xsl:template>
     
     <xsl:template name="continue">
@@ -334,7 +381,7 @@
                         <xsl:call-template name="title"/>
                     </xsl:for-each>
                     <span class="ent">
-                        <xsl:value-of select="lower-case(local-name($rec//*:Components/*))"/>
+                        <xsl:value-of select="replace(lower-case(local-name($rec//*:Components/*)),'collectionholding','')"/>
                     </span>
                 </li>
             </xsl:for-each>

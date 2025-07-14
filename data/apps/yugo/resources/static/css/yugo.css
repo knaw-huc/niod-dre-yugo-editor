@@ -308,7 +308,7 @@ table.sortable tbody tr:nth-child(2n+1) td {
 }
 
 .lang::before {
-    content: " (";
+    content: "\00a0(";
 }
 
 .lang::after {
@@ -319,7 +319,7 @@ table.sortable tbody tr:nth-child(2n+1) td {
 }
 
 .type::before {
-    content: " (";
+    content: "\00a0(";
 }
 
 .type::after {
@@ -331,7 +331,7 @@ table.sortable tbody tr:nth-child(2n+1) td {
 }
 
 .ent::before {
-    content: " (";
+    content: "\00a0(";
 }
 
 .ent::after {
@@ -341,4 +341,17 @@ table.sortable tbody tr:nth-child(2n+1) td {
 a.rel {
     font-weight: normal;
     text-decoration: underline;
+}
+
+span.here {
+    font-weight: bold;
+}
+
+span.here::before {
+    content: 'You\'re here:';
+}
+
+h3 {
+    font-weight: normal;
+    font-style:italic;
 }
