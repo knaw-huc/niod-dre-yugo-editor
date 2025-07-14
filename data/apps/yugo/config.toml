@@ -12,7 +12,7 @@ cmdi_version="1.2"
 
 [app.access]
 users="./htp"
-read="users"
+read="any"
 write="users" 
 
 [app.html]
@@ -294,7 +294,7 @@ filter="'select'"
 #filter="'select'"
 
 [app.hooks.action.browser]
-level="none"
+level="rec"
 label="browser"
 endpoint="browser"
 hook="browser"
