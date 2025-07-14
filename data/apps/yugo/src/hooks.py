@@ -20,6 +20,9 @@ def browser(req:Request, action:str, app: str, prof: str, nr: str, user:str) -> 
         executable.set_parameter("app", proc.make_string_value(app))
         executable.set_parameter("prof", proc.make_string_value(prof))
         executable.set_parameter("nr", proc.make_string_value(nr))
+        graph = to_graph(app)
+        graph = proc.parse_xml(xml_text=graph)
+        executable.set_parameter("graph", graph)
         tweak = prof_xml(app, prof)
         tweak = proc.parse_xml(xml_text=tweak)
         executable.set_parameter("tweak-doc",tweak)
@@ -36,6 +39,10 @@ def browser(req:Request, action:str, app: str, prof: str, nr: str, user:str) -> 
 
 def graph(req:Request, action:str, app: str, prof: str, nr: str, user:str) -> None:
     res = "This will be the response"
+    res = to_graph(app)
+    return Response(content=res, media_type="application/xml")
+
+def to_graph(app: str):
     with PySaxonProcessor(license=False) as proc:
         xpproc = proc.new_xpath_processor()
         xpproc.set_cwd(os.getcwd())
@@ -49,5 +56,4 @@ def graph(req:Request, action:str, app: str, prof: str, nr: str, user:str) -> No
         config = proc.parse_xml(xml_file_name=f"{settings.URL_DATA_APPS}/{app}/config.xml")
         executable.set_parameter("config", config)
         null = proc.parse_xml(xml_text="<null/>")
-        res = executable.transform_to_string(xdm_node=null)
-    return Response(content=res, media_type="application/xml")
+        return executable.transform_to_string(xdm_node=null)
