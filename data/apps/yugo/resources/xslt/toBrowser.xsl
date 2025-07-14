@@ -2,22 +2,73 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:err="http://www.w3.org/2005/xqt-errors" 
                 xmlns:clariah="http://www.clariah.eu/"
-                exclude-result-prefixes="clariah err"
+                xmlns:yugo="http://yugo.niod.nl/"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:functx="http://www.functx.com"
+                exclude-result-prefixes="clariah err yugo xs functx"
                 version="3.0">
     
     <xsl:output method="xml" omit-xml-declaration="yes"/>
     
     <xsl:param name="cwd" select="'file:/Users/menzowi/Documents/Projects/huc-cmdi-editor/service/'"/>
-    <xsl:param name="base" select="'http://localhost:1210'"/>
+    <xsl:param name="base" select="'http://host.docker.internal:1211'"/>
     <xsl:param name="app" select="'adoptie'"/>
     <xsl:param name="nr" select="'1'"/>
     <xsl:param name="config" select="doc(concat($cwd, '/data/apps/', $app, '/config.xml'))"/>
     <xsl:param name="prof" select="$config/config/app/def_prof"/>
-    
+    <xsl:param name="graph"/>
     
     <xsl:param name="style" select="'style.css'"/>
     <xsl:param name="tweak-uri" select="''"/>
     <xsl:param name="tweak-doc" select="document($tweak-uri)"/>
+    
+    <xsl:variable name="rec" select="/"/>
+    
+    <xsl:function name="functx:capitalize-first" as="xs:string?">
+        <xsl:param name="arg" as="xs:string?"/>
+        
+        <xsl:sequence select="
+            concat(upper-case(substring($arg, 1, 1)),
+            substring($arg, 2))
+            "/>
+        
+    </xsl:function>
+    
+    <xsl:function name="functx:camel-case-to-words" as="xs:string">
+        <xsl:param name="arg" as="xs:string?"/>
+        <xsl:param name="delim" as="xs:string"/>
+        
+        <xsl:sequence select="
+            concat(substring($arg, 1, 1),
+            replace(substring($arg, 2), '(\p{Lu})',
+            concat($delim, '$1')))
+            "/>
+        
+    </xsl:function>
+    
+    <xsl:function name="yugo:toLang">
+        <xsl:param name="lang"/>
+        <xsl:choose>
+            <xsl:when test="$lang='en'">
+                <xsl:value-of select="'English'"/>
+            </xsl:when>
+            <xsl:when test="$lang='fr'">
+                <xsl:value-of select="'French'"/>
+            </xsl:when>
+            <xsl:when test="$lang='bos'">
+                <xsl:value-of select="'Bosnian'"/>
+            </xsl:when>
+            <xsl:when test="$lang='hrv'">
+                <xsl:value-of select="'Croatian'"/>
+            </xsl:when>
+            <xsl:when test="$lang='srp'">
+                <xsl:value-of select="'Serbian'"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="'other'"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
     
     <xsl:variable name="cmd-ns" select="
         if ($config//app/cmdi_version = '1.2')  then
@@ -54,22 +105,248 @@
     </xsl:template>
     
     <xsl:template match="/">
-        <div class="body">
-            <h1>
-                <xsl:call-template name="title"/>
-            </h1>
-            <dl>
-                <xsl:apply-templates select="/*:CMD/*:Components/*">
-                    <xsl:with-param name="tweak" select="$tweak-doc/ComponentSpec"/>
-                </xsl:apply-templates>
-            </dl>
-        </div>
+<!--        <html>
+            <head>
+                <title>
+                    <xsl:call-template name="title"/>
+                </title>
+                <link href="/app/yugo/static/css/yugo.css" rel="stylesheet"/>
+            </head>
+                <body>                            
+ -->                   <div class="body">
+                        <h1>
+                            <xsl:call-template name="title"/>
+                        </h1>
+                        <xsl:variable name="type" select="(/*:CMD/*:Components/*:Collection/*:Identification/*:type,/*:CMD/*:Components/*:Group/*:Identification/*:type),/*:CMD/*:Components/*:Event/*:Identification/*:type[1]"/>
+                        <xsl:if test="normalize-space($type)!=''">
+                            <p class="type">
+                                <xsl:value-of select="$type"/>
+                            </p>
+                        </xsl:if>
+                        <xsl:for-each select="//*:Names/*:parallelForms">
+                            <div class="parallelForms">
+                                <xsl:value-of select="."/>
+                                <span class="lang">
+                                    <xsl:value-of select="yugo:toLang(@xml:lang)"/>
+                                </span>
+                            </div>
+                        </xsl:for-each>
+                        <xsl:for-each select="//*:Names/*:otherForms">
+                            <div class="parallelForms">
+                                <xsl:value-of select="."/>
+                                <span class="lang">
+                                    <xsl:value-of select="yugo:toLang(@xml:lang)"/>
+                                </span>
+                            </div>
+                        </xsl:for-each>
+<!--                        <dl>
+-->                            <xsl:apply-templates select="/*:CMD/*:Components/*">
+                                <xsl:with-param name="tweak" select="$tweak-doc/ComponentSpec"/>
+                            </xsl:apply-templates>
+                        <!--</dl>-->
+                    </div>
+                <!--</body>
+        </html>-->
     </xsl:template>
+    
+    <xsl:template name="continue">
+        <xsl:param name="tweak"/>
+        <xsl:variable name="t" select="$tweak/*[@name=local-name(current())]"/>
+        <xsl:apply-templates>
+            <xsl:with-param name="tweak" select="$t"/>
+        </xsl:apply-templates>
+    </xsl:template>
+    
+    <xsl:template name="section">
+        <xsl:param name="tweak"/>
+        <xsl:variable name="t" select="$tweak/*[@name=local-name(current())]"/>
+        <hr/>
+        <h2 class="{local-name()} level-{count(ancestor::*) - 1} {local-name($t)}">
+            <xsl:choose>
+                <xsl:when test="normalize-space($t/clariah:label)!=''">
+                    <xsl:value-of select="normalize-space($t/clariah:label)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="functx:capitalize-first(functx:camel-case-to-words(string(local-name()), ' '))"/>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:call-template name="continue">
+                <xsl:with-param name="tweak" select="$tweak"/>
+            </xsl:call-template>
+        </h2>        
+    </xsl:template>
+
+    <xsl:template name="field">
+        <xsl:param name="tweak"/>
+        <xsl:variable name="t" select="$tweak/*[@name=local-name(current())]"/>
+        <h3 class="{local-name()} level-{count(ancestor::*) - 1} {local-name($t)}">
+            <xsl:choose>
+                <xsl:when test="normalize-space($t/clariah:label)!=''">
+                    <xsl:value-of select="normalize-space($t/clariah:label)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="functx:capitalize-first(functx:camel-case-to-words(string(local-name()), ' '))"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </h3>        
+    </xsl:template>
+    
+    <xsl:template name="value">
+        <xsl:param name="tweak"/>
+        <xsl:variable name="t" select="$tweak/*[@name=local-name(current())]"/>
+        <xsl:choose>
+            <xsl:when test="*">
+                <xsl:apply-templates>
+                    <xsl:with-param name="tweak" select="$t"/>
+                </xsl:apply-templates>
+            </xsl:when>
+            <xsl:when test="normalize-space(@*:valueConceptLink)!=''">
+                <xsl:choose>
+                    <xsl:when test="matches(@*:valueConceptLink,'/entity/([^/]+)/([0-9]+)$')">
+                        <xsl:variable name="rec" select="replace(@*:valueConceptLink,'.*/entity/[^/]+/([0-9]+)$','$1')"/>
+                        <xsl:variable name="ent" select="replace(@*:valueConceptLink,'.*/entity/([^/]+)/[0-9]+$','$1')"/>
+                        <a href="/{$ent}_detail/{$rec}">
+                            <xsl:value-of select="."/>
+                        </a>
+                    </xsl:when>
+                    <xsl:when test="matches(@*:valueConceptLink,'^ref:/')">
+                        <a href="{normalize-space(replace(@*:valueConceptLink,'^ref:/','/'))}">
+                            <xsl:value-of select="."/>
+                        </a>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <a href="{normalize-space(@*:valueConceptLink)}" target="conceptlink">
+                            <xsl:value-of select="."/>
+                        </a>                            
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="."/>
+            </xsl:otherwise>
+        </xsl:choose>
+        
+    </xsl:template>
+    
+    <xsl:template match="*:Components/*" priority="100">
+        <xsl:param name="tweak"/>
+        <xsl:call-template name="continue">
+            <xsl:with-param name="tweak" select="$tweak"/>
+        </xsl:call-template>
+    </xsl:template>
+    
+    <xsl:template match="*:status" priority="100"/>
+    <xsl:template match="*:type" priority="100"/>
+    <xsl:template match="*:ControlArea" priority="100"/>
+    
+    <xsl:template match="*:Identification" priority="100">
+        <xsl:param name="tweak"/>
+        <xsl:call-template name="continue">
+            <xsl:with-param name="tweak" select="$tweak"/>
+        </xsl:call-template>
+    </xsl:template>
+    
+    <xsl:template match="*:Names" priority="100"/>
+    
+    <xsl:template match="*[exists(*)]" priority="10">
+        <xsl:param name="tweak"/>
+        <xsl:call-template name="section">
+            <xsl:with-param name="tweak" select="$tweak"/>
+        </xsl:call-template>
+    </xsl:template>
+    
+    <xsl:template  match="*[empty(*)]" priority="10">
+        <xsl:param name="tweak"/>
+        <xsl:call-template name="field">
+            <xsl:with-param name="tweak" select="$tweak"/>            
+        </xsl:call-template>
+        <xsl:call-template name="value">
+            <xsl:with-param name="tweak" select="$tweak"/>            
+        </xsl:call-template>
+    </xsl:template>
+    
+    <xsl:template match="*:RelationshipArea" priority="100">
+        <xsl:param name="tweak"/>
+        <xsl:variable name="t" select="$tweak/*[@name=local-name(current())]"/>
+        <hr/>
+        <h2 class="{local-name()} level-{count(ancestor::*) - 1} {local-name($t)}">Relationships</h2>
+        <h3 class="from level-{count(ancestor::*) - 1} element">From</h3>
+        <ul>
+            <xsl:for-each select="//*:to">
+                <li>
+                    <xsl:for-each select="$rec">
+                        <xsl:call-template name="title"/>
+                    </xsl:for-each>
+                    <span class="ent">
+                        <xsl:value-of select="lower-case(local-name($rec//*:Components/*))"/>
+                    </span>
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="../*:category"/>
+                    <xsl:text> </xsl:text>
+                    <xsl:choose>
+                        <xsl:when test="normalize-space(@*:valueConceptLink)!=''">
+                            <xsl:choose>
+                                <xsl:when test="matches(@*:valueConceptLink,'/entity/([^/]+)/([0-9]+)$')">
+                                    <xsl:variable name="rec" select="replace(@*:valueConceptLink,'.*/entity/[^/]+/([0-9]+)$','$1')"/>
+                                    <xsl:variable name="ent" select="replace(@*:valueConceptLink,'.*/entity/([^/]+)/[0-9]+$','$1')"/>
+                                    <a href="/{$ent}_detail/{$rec}" class="rel">
+                                        <xsl:value-of select="."/>
+                                    </a>
+                                    <span class="ent">
+                                        <xsl:value-of select="$ent"/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="matches(@*:valueConceptLink,'^ref:/')">
+                                    <a href="{normalize-space(replace(@*:valueConceptLink,'^ref:/','/'))}">
+                                        <xsl:value-of select="."/>
+                                    </a>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <a href="{normalize-space(@*:valueConceptLink)}" target="conceptlink">
+                                        <xsl:value-of select="."/>
+                                    </a>                            
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="."/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </li>
+            </xsl:for-each>
+        </ul>
+        <h3 class="from level-{count(ancestor::*) - 1} element">To</h3>
+        <ul>
+            <xsl:variable name="id" select="replace(//*:MdSelfLink,'unl://','')"/>
+            <xsl:variable name="prof" select="//*:MdProfile"/>
+            <xsl:for-each select="$graph//edge[to/@id=$id][to/@prof=$prof]">
+                <li>
+                    <a href="/{from/@ent}_detail/{from/@id}" class="rel">
+                        <xsl:value-of select="from/@title"/>
+                    </a>
+                    <span class="ent">
+                        <xsl:value-of select="from/@ent"/>
+                    </span>
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="@category"/>
+                    <xsl:text> </xsl:text>
+                    <xsl:for-each select="$rec">
+                        <xsl:call-template name="title"/>
+                    </xsl:for-each>
+                    <span class="ent">
+                        <xsl:value-of select="lower-case(local-name($rec//*:Components/*))"/>
+                    </span>
+                </li>
+            </xsl:for-each>
+        </ul>
+    </xsl:template>
+    
+    
     
     <xsl:template match="*:IdentifierExternal/*:uri">
         <xsl:param name="tweak"/>
         <xsl:variable name="t" select="$tweak/*[@name=local-name(current())]"/>
-        <dt class="{local-name()} level-{count(ancestor::*) - 1} {local-name($t)}">
+       <!-- <dt class="{local-name()} level-{count(ancestor::*) - 1} {local-name($t)}">-->
             <xsl:choose>
                 <xsl:when test="normalize-space($t/clariah:label)!=''">
                     <xsl:value-of select="normalize-space($t/clariah:label)"/>
@@ -78,8 +355,8 @@
                     <xsl:value-of select="local-name()"/>
                 </xsl:otherwise>
             </xsl:choose>
-        </dt>
-        <dd class="{local-name()} level-{count(ancestor::*) - 1} {local-name($t)}">
+        <!--</dt>-->
+        <!--<dd class="{local-name()} level-{count(ancestor::*) - 1} {local-name($t)}">-->
             <xsl:choose>
                 <xsl:when test="matches(.,'http(s)?://')">
                     <a href="{.}" target="external">
@@ -90,30 +367,30 @@
                     <xsl:value-of select="."/>
                 </xsl:otherwise>
             </xsl:choose>
-        </dd>
+        <!--</dd>-->
     </xsl:template>
     
-    <xsl:template match="*">
+ <!--   <xsl:template match="*">
         <xsl:param name="tweak"/>
         <xsl:variable name="t" select="$tweak/*[@name=local-name(current())]"/>
-        <dt class="{local-name()} level-{count(ancestor::*) - 1} {local-name($t)}">
+        <h2 class="{local-name()} level-{count(ancestor::*) - 1} {local-name($t)}">
             <xsl:choose>
                 <xsl:when test="normalize-space($t/clariah:label)!=''">
                     <xsl:value-of select="normalize-space($t/clariah:label)"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="local-name()"/>
+                    <xsl:value-of select="functx:capitalize-first(functx:camel-case-to-words(string(local-name()), ' '))"/>
                 </xsl:otherwise>
             </xsl:choose>
-        </dt>
-        <dd class="{local-name()} level-{count(ancestor::*) - 1} {local-name($t)}">
+        </h2>
+        <!-\-<dd class="{local-name()} level-{count(ancestor::*) - 1} {local-name($t)}">-\->
             <xsl:choose>
                 <xsl:when test="*">
-                    <dl>
+                    <!-\-<dl>-\->
                         <xsl:apply-templates>
                             <xsl:with-param name="tweak" select="$t"/>
                         </xsl:apply-templates>
-                    </dl>
+                    <!-\-</dl>-\->
                 </xsl:when>
                 <xsl:when test="normalize-space(@*:valueConceptLink)!=''">
                     <xsl:choose>
@@ -140,7 +417,7 @@
                     <xsl:value-of select="."/>
                 </xsl:otherwise>
             </xsl:choose>
-        </dd>
+        <!-\-</dd>-\->
     </xsl:template>        
-    
+-->    
 </xsl:stylesheet>
