@@ -166,8 +166,10 @@
                                 />
                             </span>
                             <xsl:text> </xsl:text>
-                            <xsl:value-of select="../*:category"/>
-                            <xsl:text> </xsl:text>
+                            <xsl:if test="normalize-space(../*:category)!=''">
+                                <xsl:value-of select="normalize-space(../*:category)"/>
+                                <xsl:text> </xsl:text>
+                            </xsl:if>
                             <xsl:choose>
                                 <xsl:when test="normalize-space(@*:valueConceptLink) != ''">
                                     <xsl:choose>
@@ -202,6 +204,16 @@
                                     <xsl:value-of select="."/>
                                 </xsl:otherwise>
                             </xsl:choose>
+                            <xsl:if test="normalize-space(../*:date)!=''">
+                                <div>
+                                    <xsl:value-of select="normalize-space(../*:date)"/>
+                                </div>
+                            </xsl:if>
+                            <xsl:if test="normalize-space(../*:description)!=''">
+                                <div>
+                                    <xsl:value-of select="normalize-space(../*:description)"/>
+                                </div>
+                            </xsl:if>
                         </li>
                     </xsl:for-each>
                 </ul>
@@ -220,8 +232,10 @@
                                 <xsl:value-of select="from/@ent"/>
                             </span>
                             <xsl:text> </xsl:text>
-                            <xsl:value-of select="@category"/>
-                            <xsl:text> </xsl:text>
+                            <xsl:if test="normalize-space(@category)!=''">
+                                <xsl:value-of select="normalize-space(@category)"/>
+                                <xsl:text> </xsl:text>
+                            </xsl:if>
                             <xsl:for-each select="$rec">
                                 <xsl:call-template name="title"/>
                             </xsl:for-each>
