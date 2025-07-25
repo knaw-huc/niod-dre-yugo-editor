@@ -30,7 +30,7 @@
                 "/>
 
     </xsl:function>
-
+    
     <xsl:function name="functx:camel-case-to-words" as="xs:string">
         <xsl:param name="arg" as="xs:string?"/>
         <xsl:param name="delim" as="xs:string"/>
@@ -153,100 +153,27 @@
             </xsl:apply-templates>
             <hr/>
             <h2 class="RelationShipArea component">Relationships</h2>
-            <xsl:if test="exists(//*:RelationshipArea//*:to)">
-                <h3 class="from level-{count(ancestor::*) - 1} element">From</h3>
-                <ul>
-                    <xsl:for-each select=".//*:to">
-                        <li>
-                            <xsl:for-each select="$rec">
-                                <xsl:call-template name="title"/>
-                            </xsl:for-each>
-                            <span class="ent">
-                                <xsl:value-of select="lower-case(local-name($rec//*:Components/*))"
-                                />
-                            </span>
-                            <xsl:text> </xsl:text>
-                            <xsl:if test="normalize-space(../*:category)!=''">
-                                <xsl:value-of select="normalize-space(../*:category)"/>
-                                <xsl:text> </xsl:text>
-                            </xsl:if>
-                            <xsl:choose>
-                                <xsl:when test="normalize-space(@*:valueConceptLink) != ''">
-                                    <xsl:choose>
-                                        <xsl:when
-                                            test="matches(@*:valueConceptLink, '/entity/([^/]+)/([0-9]+)$')">
-                                            <xsl:variable name="rec"
-                                                select="replace(@*:valueConceptLink, '.*/entity/[^/]+/([0-9]+)$', '$1')"/>
-                                            <xsl:variable name="ent"
-                                                select="replace(@*:valueConceptLink, '.*/entity/([^/]+)/[0-9]+$', '$1')"/>
-                                            <a href="/{$ent}_detail/{$rec}" class="rel">
-                                                <xsl:value-of select="."/>
-                                            </a>
-                                            <span class="ent">
-                                                <xsl:value-of select="$ent"/>
-                                            </span>
-                                        </xsl:when>
-                                        <xsl:when test="matches(@*:valueConceptLink, '^ref:/')">
-                                            <a
-                                                href="{normalize-space(replace(@*:valueConceptLink,'^ref:/','/'))}">
-                                                <xsl:value-of select="."/>
-                                            </a>
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <a href="{normalize-space(@*:valueConceptLink)}"
-                                                target="conceptlink">
-                                                <xsl:value-of select="."/>
-                                            </a>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:value-of select="."/>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                            <xsl:if test="normalize-space(../*:date)!=''">
-                                <div>
-                                    <xsl:value-of select="normalize-space(../*:date)"/>
-                                </div>
-                            </xsl:if>
-                            <xsl:if test="normalize-space(../*:description)!=''">
-                                <div>
-                                    <xsl:value-of select="normalize-space(../*:description)"/>
-                                </div>
-                            </xsl:if>
-                        </li>
-                    </xsl:for-each>
-                </ul>
-            </xsl:if>
-            <xsl:variable name="id" select="replace(//*:MdSelfLink, 'unl://', '')"/>
-            <xsl:variable name="prof" select="//*:MdProfile"/>
             <xsl:if test="exists($graph//edge[to/@id = $id][to/@prof = $prof])">
-                <h3 class="to level-{count(ancestor::*) - 1} element">To</h3>
-                <ul>
-                    <xsl:for-each select="$graph//edge[to/@id = $id][to/@prof = $prof]">
-                        <li>
-                            <a href="/{from/@ent}_detail/{from/@id}" class="rel">
-                                <xsl:value-of select="from/@title"/>
-                            </a>
-                            <span class="ent">
-                                <xsl:value-of select="from/@ent"/>
-                            </span>
-                            <xsl:text> </xsl:text>
-                            <xsl:if test="normalize-space(@category)!=''">
-                                <xsl:value-of select="normalize-space(@category)"/>
-                                <xsl:text> </xsl:text>
-                            </xsl:if>
-                            <xsl:for-each select="$rec">
-                                <xsl:call-template name="title"/>
-                            </xsl:for-each>
-                            <span class="ent">
-                                <xsl:value-of
-                                    select="replace(lower-case(local-name($rec//*:Components/*)), 'collectionholding', '')"
-                                />
-                            </span>
-                        </li>
-                    </xsl:for-each>
-                </ul>
+                <xsl:variable name="rels" select="$graph//edge[*[@id = $id and @prof = $prof]]/*[not(@id = $id and @prof = $prof)]"/>
+                <xsl:for-each-group select="$rels" group-by="@ent">
+                    <xsl:sort select="current-grouping-key()"/>
+                    <h3 class="from level-1 element">
+                        <xsl:value-of select="concat(functx:capitalize-first(current-grouping-key()),'s')"/>
+                    </h3>
+                    <ul>
+                        <xsl:for-each-group select="current-group()" group-by="concat(@id,'@',@ent)">
+                            <xsl:variable name="e" select="."/>
+                            <li>
+                                <a href="/{$e/@ent}_detail/{$e/@id}" class="rel">
+                                    <xsl:value-of select="$e/@title"/>
+                                </a>
+                                <!--<span class="ent">
+                                    <xsl:value-of select="$e/@ent"/>
+                                </span>-->
+                            </li>
+                        </xsl:for-each-group>
+                    </ul>
+                </xsl:for-each-group>
             </xsl:if>
         </div>
         <!--</body>
