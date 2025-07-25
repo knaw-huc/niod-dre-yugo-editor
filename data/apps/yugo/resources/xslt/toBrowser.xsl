@@ -291,8 +291,8 @@
             <xsl:with-param name="tweak" select="$t"/>
         </xsl:apply-templates>
     </xsl:template>
-
-    <xsl:template name="section">
+    
+    <xsl:template name="section-title">
         <xsl:param name="tweak"/>
         <xsl:variable name="t" select="$tweak/*[@name = local-name(current())]"/>
         <hr/>
@@ -307,10 +307,17 @@
                     />
                 </xsl:otherwise>
             </xsl:choose>
-            <xsl:call-template name="continue">
-                <xsl:with-param name="tweak" select="$tweak"/>
-            </xsl:call-template>
         </h2>
+    </xsl:template>
+
+    <xsl:template name="section">
+        <xsl:param name="tweak"/>
+        <xsl:call-template name="section-title">
+            <xsl:with-param name="tweak" select="$tweak"/>
+        </xsl:call-template>
+        <xsl:call-template name="continue">
+            <xsl:with-param name="tweak" select="$tweak"/>
+        </xsl:call-template>
     </xsl:template>
 
     <xsl:template name="field">
@@ -389,6 +396,48 @@
         </xsl:call-template>
     </xsl:template>
 
+    <xsl:template match="*:CollectionHoldingInstitutionContactArea" priority="100">
+        <xsl:param name="tweak"/>
+        <xsl:call-template name="section-title">
+            <xsl:with-param name="tweak" select="$tweak"/>
+        </xsl:call-template>
+        <!--<cmdp:CollectionHoldingInstitutionContactArea>
+            <cmdp:address>Churchillplein 1 2517 JW</cmdp:address>
+            <cmdp:city xml:lang="en">The Hague</cmdp:city>
+            <cmdp:regionProvince xml:lang="en">Zuid Holland</cmdp:regionProvince>
+            <cmdp:country xml:lang="en">The Netherlands</cmdp:country>
+            <cmdp:telephoneNumber>0031 (0)70 512 5037</cmdp:telephoneNumber>
+            <cmdp:email>marshague@un.org</cmdp:email>
+            <cmdp:website>https://www.irmct.org/en</cmdp:website>
+        </cmdp:CollectionHoldingInstitutionContactArea>-->
+        <xsl:value-of select="normalize-space(*:address)"/>
+        <br/>
+        <xsl:value-of select="normalize-space((*:city[@xml:lang='en'],*:city)[1])"/>
+        <xsl:if test="normalize-space((*:regionProvince[@xml:lang='en'],*:regionProvince)[1])!=''">
+            <xsl:text>, </xsl:text>
+            <xsl:value-of select="normalize-space((*:regionProvince[@xml:lang='en'],*:regionProvince)[1])"/>
+        </xsl:if>
+        <xsl:if test="normalize-space((*:country[@xml:lang='en'],*:country)[1])!=''">
+            <xsl:text>, </xsl:text>
+            <xsl:value-of select="normalize-space((*:country[@xml:lang='en'],*:country)[1])"/>
+        </xsl:if>
+        <br/>
+        <xsl:if test="normalize-space(*:telephoneNumber)!=''">
+            <xsl:text>&#9743; </xsl:text>
+            <xsl:value-of select="normalize-space(*:telephoneNumber)"/>
+            <br/>
+        </xsl:if>
+        <xsl:if test="normalize-space(*:email)!=''">
+            <xsl:text>&#9993; </xsl:text>
+            <xsl:value-of select="normalize-space(*:email)"/>
+            <br/>
+        </xsl:if>
+        <xsl:if test="normalize-space(*:website)!=''">
+            <xsl:text>&#127760; </xsl:text>
+            <xsl:value-of select="normalize-space(*:website)"/>
+            <br/>
+        </xsl:if>
+    </xsl:template>
 
     <xsl:template match="*[exists(*)]" priority="10">
         <xsl:param name="tweak"/>
