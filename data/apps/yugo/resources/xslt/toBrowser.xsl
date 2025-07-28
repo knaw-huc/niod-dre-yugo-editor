@@ -67,6 +67,18 @@
         </xsl:choose>
     </xsl:function>
 
+    <xsl:function name="yugo:toEnt">
+        <xsl:param name="ent"/>
+        <xsl:choose>
+            <xsl:when test="$ent = 'group'">
+                <xsl:value-of select="'organisation'"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$ent"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+
     <xsl:variable name="cmd-ns" select="
             if ($config//app/cmdi_version = '1.2') then
                 'http://www.clarin.eu/cmd/1'
@@ -158,7 +170,7 @@
                 <xsl:for-each-group select="$rels" group-by="@ent">
                     <xsl:sort select="current-grouping-key()"/>
                     <h3 class="from level-1 element">
-                        <xsl:value-of select="concat(functx:capitalize-first(current-grouping-key()),'s')"/>
+                        <xsl:value-of select="concat(functx:capitalize-first(yugo:toEnt(current-grouping-key())),'s')"/>
                     </h3>
                     <ul>
                         <xsl:for-each-group select="current-group()" group-by="concat(@id,'@',@ent)">
@@ -168,7 +180,7 @@
                                     <xsl:value-of select="$e/@title"/>
                                 </a>
                                 <!--<span class="ent">
-                                    <xsl:value-of select="$e/@ent"/>
+                                    <xsl:value-of select="yugo:toEnt($e/@ent)"/>
                                 </span>-->
                             </li>
                         </xsl:for-each-group>
@@ -190,7 +202,7 @@
                         <span class="here">&#160;</span>
                         <xsl:value-of select="@title"/>
                         <span class="ent">
-                            <xsl:value-of select="local-name()"/>
+                            <xsl:value-of select="yugo:toEnt(local-name())"/>
                         </span>
                     </xsl:when>
                     <xsl:otherwise>
@@ -198,7 +210,7 @@
                             <xsl:value-of select="@title"/>
                         </a>
                         <span class="ent">
-                            <xsl:value-of select="local-name()"/>
+                            <xsl:value-of select="yugo:toEnt(local-name())"/>
                         </span>
                     </xsl:otherwise>
                 </xsl:choose>
