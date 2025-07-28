@@ -308,6 +308,11 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
+            <xsl:when test="starts-with(normalize-space(.),'http://') or starts-with(normalize-space(.),'https://')">
+                <a href="{normalize-space(.)}" target="{local-name()}">
+                    <xsl:value-of select="."/>
+                </a>
+            </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="."/>
             </xsl:otherwise>
