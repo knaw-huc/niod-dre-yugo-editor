@@ -72,8 +72,8 @@
         </xsl:variable>
         <xsl:variable name="collectionHierarchy">
             <collectionHierarchy>
-                <xsl:for-each select="$graph//to[@ent='institution']">
-                    <xsl:variable name="i" select="."/>
+                <xsl:for-each-group select="$graph//to[@ent='institution']" group-by="@id">
+                    <xsl:variable name="i" select="current-group()[1]"/>
                     <institution>
                         <xsl:copy-of select="$i/@*"/>
                         <xsl:for-each select="$graph//*[child::to[@id=$i/@id][@ent='institution']]/from[@ent='collection']">
@@ -82,7 +82,7 @@
                             </xsl:call-template>
                         </xsl:for-each>
                     </institution>
-                </xsl:for-each>
+                </xsl:for-each-group>
             </collectionHierarchy>
         </xsl:variable>
         <res>
