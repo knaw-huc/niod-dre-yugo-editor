@@ -373,12 +373,16 @@
         </xsl:if>
         <xsl:if test="normalize-space(*:email)!=''">
             <xsl:text>&#9993; </xsl:text>
-            <xsl:value-of select="normalize-space(*:email)"/>
+            <a href="mailto:{normalize-space(*:email)}">
+                <xsl:value-of select="normalize-space(*:email)"/>
+            </a>
             <br/>
         </xsl:if>
         <xsl:if test="normalize-space(*:website)!=''">
             <xsl:text>&#127760; </xsl:text>
-            <xsl:value-of select="normalize-space(*:website)"/>
+            <a href="{normalize-space(*:website)}" target="contact">
+                <xsl:value-of select="normalize-space(*:website)"/>
+            </a>
             <br/>
         </xsl:if>
     </xsl:template>

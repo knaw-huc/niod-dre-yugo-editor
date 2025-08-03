@@ -5,6 +5,7 @@ import toml
 import os
 import logging
 from src.commons import settings, convert_toml_to_xml
+from apps.yugo.src.read_and_index import read_and_index
 
 
 def browser(req:Request, action:str, app: str, prof: str, nr: str, user:str) -> None:
@@ -57,3 +58,29 @@ def to_graph(app: str):
         executable.set_parameter("config", config)
         null = proc.parse_xml(xml_text="<null/>")
         return executable.transform_to_string(xdm_node=null)
+    
+def indexer(req:Request, action:str, app: str, prof: str, nr: str, user:str) -> None:
+        graph = to_graph(app)
+        with open(f"{settings.URL_DATA_APPS}/{app}/graph.xml", 'w', encoding='utf-8') as f:
+            f.write(graph)
+
+        res = "indexed:"
+        if prof == None or prof=='clarin.eu:cr1:p_1721373443934':
+            read_and_index(toml_file=f"{settings.URL_DATA_APPS}/{app}/indexes/institution.toml",input_dir=f"{settings.URL_DATA_APPS}/{app}/profiles/clarin.eu:cr1:p_1721373443934/records")
+            res=res + " institutions"
+        if prof == None or prof=='clarin.eu:cr1:p_1747312582429':
+            read_and_index(toml_file=f"{settings.URL_DATA_APPS}/{app}/indexes/collection.toml",input_dir=f"{settings.URL_DATA_APPS}/{app}/profiles/clarin.eu:cr1:p_1747312582429/records")
+            res=res + " collections"
+        if prof == None or prof=='clarin.eu:cr1:p_1721373443955':
+            read_and_index(toml_file=f"{settings.URL_DATA_APPS}/{app}/indexes/person.toml",input_dir=f"{settings.URL_DATA_APPS}/{app}/profiles/clarin.eu:cr1:p_1721373443955/records")
+            res=res + " persons"
+        if prof == None or prof=='clarin.eu:cr1:p_1747312582450':
+            read_and_index(toml_file=f"{settings.URL_DATA_APPS}/{app}/indexes/group.toml",input_dir=f"{settings.URL_DATA_APPS}/{app}/profiles/clarin.eu:cr1:p_1747312582450/records")
+            res=res + " groups"
+        if prof == None or prof=='clarin.eu:cr1:p_1744616237113':
+            read_and_index(toml_file=f"{settings.URL_DATA_APPS}/{app}/indexes/place.toml",input_dir=f"{settings.URL_DATA_APPS}/{app}/profiles/clarin.eu:cr1:p_1744616237113/records")
+            res=res + " places"
+        if prof == None or prof=='clarin.eu:cr1:p_1733830015132':
+            read_and_index(toml_file=f"{settings.URL_DATA_APPS}/{app}/indexes/event.toml",input_dir=f"{settings.URL_DATA_APPS}/{app}//profiles/clarin.eu:cr1:p_1733830015132/records")
+            res=res + " events"
+        return res

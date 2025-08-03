@@ -304,3 +304,9 @@ level="app"
 label="graph"
 endpoint="graph"
 hook="graph"
+
+[app.hooks.action.index]
+level="app prof"
+label="reindex"
+endpoint="index"
+hook="indexer"
