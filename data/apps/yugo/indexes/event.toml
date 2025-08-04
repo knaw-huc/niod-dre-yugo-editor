@@ -64,7 +64,7 @@ type="text"
 cardinality="list"
 
 [index.facet.year]
-path="number(replace(/cmd:CMD/cmd:Components/cmdp:Event/cmdp:EventDescriptionArea/cmdp:Date/cmdp:dateStart,'.*(\\d\\d\\d\\d).*','$1')) cast as xs:int to number(replace(/cmd:CMD/cmd:Components/cmdp:Event/cmdp:EventDescriptionArea/cmdp:Date/cmdp:dateEnd,'.*(\\d\\d\\d\\d).*','$1')) cast as xs:int"
+path="if (normalize-space(replace(/cmd:CMD/cmd:Components/cmdp:Event/cmdp:EventDescriptionArea/cmdp:Date/cmdp:dateStart,'.*(\\d\\d\\d\\d).*','$1'))!='' and normalize-space(replace(/cmd:CMD/cmd:Components/cmdp:Event/cmdp:EventDescriptionArea/cmdp:Date/cmdp:dateEnd,'.*(\\d\\d\\d\\d).*','$1'))!='') then (number(replace(/cmd:CMD/cmd:Components/cmdp:Event/cmdp:EventDescriptionArea/cmdp:Date/cmdp:dateStart,'.*(\\d\\d\\d\\d).*','$1')) cast as xs:int to number(replace(/cmd:CMD/cmd:Components/cmdp:Event/cmdp:EventDescriptionArea/cmdp:Date/cmdp:dateEnd,'.*(\\d\\d\\d\\d).*','$1')) cast as xs:int) else ()"
 type="number"
 cardinality="list"
 
