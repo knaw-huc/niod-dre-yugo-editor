@@ -77,7 +77,7 @@
         </Component>
         <Component name="RelationshipArea">
             <Component name="ToGroup">
-                <Component name="Relationship">
+                <Component name="Relationship" CardinalityMin="1" CardinalityMax="0">
                     <Element name="to" cue:class="skosType">
                         <clariah:autoCompleteURI>/app/yugo/profile/clarin.eu:cr1:p_1747312582450/entity/group</clariah:autoCompleteURI>
                     </Element>
