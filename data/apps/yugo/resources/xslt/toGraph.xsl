@@ -79,6 +79,7 @@
                         <xsl:for-each select="$graph//*[child::to[@id=$i/@id][@ent='institution']]/from[@ent='collection']">
                             <xsl:call-template name="collectionHierarchy">
                                 <xsl:with-param name="graph" select="$graph"/>
+                                <xsl:with-param name="history" select="()"/>
                             </xsl:call-template>
                         </xsl:for-each>
                     </institution>
@@ -93,15 +94,28 @@
     
     <xsl:template name="collectionHierarchy">
         <xsl:param name="graph"/>
+        <xsl:param name="history"/>
         <xsl:variable name="c" select="."/>
-        <collection>
-            <xsl:copy-of select="$c/@*"/>
-            <xsl:for-each select="$graph//*[child::to[@id=$c/@id][@ent='collection']]/from[@ent='collection']">
-                <xsl:call-template name="collectionHierarchy">
-                    <xsl:with-param name="graph" select="$graph"/>
-                </xsl:call-template>
-            </xsl:for-each>
-        </collection>
+        <xsl:choose>
+            <xsl:when test="index-of($history,$c/@id)">
+                <xsl:variable name="msg">
+                    <xsl:text expand-text="yes">collection cycle [{string-join(($history,$c/@id),'->')}]!</xsl:text>
+                </xsl:variable>
+                <xsl:message expand-text="yes">ERR: {$msg}</xsl:message>
+                <error xsl:expand-text="yes">{$msg}</error>
+            </xsl:when>
+            <xsl:otherwise>
+                <collection>
+                    <xsl:copy-of select="$c/@*"/>
+                    <xsl:for-each select="$graph//*[child::to[@id=$c/@id][@ent='collection']]/from[@ent='collection']">
+                        <xsl:call-template name="collectionHierarchy">
+                            <xsl:with-param name="graph" select="$graph"/>
+                            <xsl:with-param name="history" select="($history,$c/@id)"/>
+                        </xsl:call-template>
+                    </xsl:for-each>
+                </collection>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
    
    
