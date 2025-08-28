@@ -366,25 +366,25 @@
             <xsl:value-of select="normalize-space((*:country[@xml:lang='en'],*:country)[1])"/>
         </xsl:if>
         <br/>
-        <xsl:if test="normalize-space(*:telephoneNumber)!=''">
+        <xsl:for-each select="*:telephoneNumber[normalize-space(.)!='']">
             <xsl:text>&#9743; </xsl:text>
-            <xsl:value-of select="normalize-space(*:telephoneNumber)"/>
+            <xsl:value-of select="normalize-space(.)"/>
             <br/>
-        </xsl:if>
-        <xsl:if test="normalize-space(*:email)!=''">
+        </xsl:for-each>
+        <xsl:for-each select="*:email[normalize-space(.)!='']">
             <xsl:text>&#9993; </xsl:text>
-            <a href="mailto:{normalize-space(*:email)}">
-                <xsl:value-of select="normalize-space(*:email)"/>
+            <a href="mailto:{normalize-space(.)}">
+                <xsl:value-of select="normalize-space(.)"/>
             </a>
             <br/>
-        </xsl:if>
-        <xsl:if test="normalize-space(*:website)!=''">
+        </xsl:for-each>
+        <xsl:for-each select="*:website[normalize-space(.)!='']">
             <xsl:text>&#127760; </xsl:text>
-            <a href="{normalize-space(*:website)}" target="contact">
-                <xsl:value-of select="normalize-space(*:website)"/>
+            <a href="{normalize-space(.)}" target="contact">
+                <xsl:value-of select="normalize-space(.)"/>
             </a>
             <br/>
-        </xsl:if>
+        </xsl:for-each>
     </xsl:template>
 
     <xsl:template match="*[exists(*)]" priority="10">
