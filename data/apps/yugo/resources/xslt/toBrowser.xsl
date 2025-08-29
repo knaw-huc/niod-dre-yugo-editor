@@ -7,16 +7,16 @@
 
     <xsl:output method="xml" omit-xml-declaration="yes"/>
 
-    <xsl:param name="cwd" select="'file:/Users/menzowi/Documents/Projects/huc-cmdi-editor/service/'"/>
-    <xsl:param name="base" select="'http://host.docker.internal:1211'"/>
-    <xsl:param name="app" select="'adoptie'"/>
+    <xsl:param name="cwd" select="'file:/Users/menzowi/Documents/GitHub/niod-dre-yugo-editor/'"/>
+    <xsl:param name="base" select="'http://localhost:1211'"/>
+    <xsl:param name="app" select="'yugo'"/>
     <xsl:param name="nr" select="'1'"/>
     <xsl:param name="config" select="doc(concat($cwd, '/data/apps/', $app, '/config.xml'))"/>
-    <xsl:param name="prof" select="$config/config/app/def_prof"/>
-    <xsl:param name="graph"/>
+    <xsl:param name="prof" select="'clarin.eu:cr1:p_1747312582429'"/>
+    <xsl:param name="graph" select="doc('file:/Users/menzowi/Documents/GitHub/niod-dre-yugo-editor/data/apps/yugo/graph.xml')"/>
 
     <xsl:param name="style" select="'style.css'"/>
-    <xsl:param name="tweak-uri" select="''"/>
+    <xsl:param name="tweak-uri" select="'file:/Users/menzowi/Documents/GitHub/niod-dre-yugo-editor/data/apps/yugo/profiles/clarin.eu:cr1:p_1747312582429/tweaks/tweak-1.xml'"/>
     <xsl:param name="tweak-doc" select="document($tweak-uri)"/>
 
     <xsl:variable name="rec" select="/"/>
@@ -165,8 +165,8 @@
             </xsl:apply-templates>
             <hr/>
             <h2 class="RelationShipArea component">Relationships</h2>
-            <xsl:if test="exists($graph//edge[to/@id = $id][to/@prof = $prof])">
-                <xsl:variable name="rels" select="$graph//edge[*[@id = $id and @prof = $prof]]/*[not(@id = $id and @prof = $prof)]"/>
+<!--            <xsl:if test="exists($graph//edge[to/@id = $id][to/@prof = $prof])">
+-->                <xsl:variable name="rels" select="$graph//edge[*[@id = $id and @prof = $prof]]/*[not(@id = $id and @prof = $prof)]"/>
                 <xsl:for-each-group select="$rels" group-by="@ent">
                     <xsl:sort select="current-grouping-key()"/>
                     <h3 class="from level-1 element">
@@ -186,7 +186,7 @@
                         </xsl:for-each-group>
                     </ul>
                 </xsl:for-each-group>
-            </xsl:if>
+            <!--</xsl:if>-->
         </div>
         <!--</body>
         </html>-->
