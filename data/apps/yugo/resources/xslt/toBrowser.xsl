@@ -296,6 +296,11 @@
                             <xsl:value-of select="."/>
                         </a>
                     </xsl:when>
+                    <xsl:when test="matches(@*:valueConceptLink, '^https://yugowarsthes.nl')">
+                        <a href="https://skosmos.sd.di.huc.knaw.nl/yugothes/en/page/?uri={encode-for-uri(normalize-space(@*:valueConceptLink))}">
+                            <xsl:value-of select="."/>
+                        </a>
+                    </xsl:when>
                     <xsl:when test="matches(@*:valueConceptLink, '^ref:/')">
                         <a href="{normalize-space(replace(@*:valueConceptLink,'^ref:/','/'))}">
                             <xsl:value-of select="."/>
