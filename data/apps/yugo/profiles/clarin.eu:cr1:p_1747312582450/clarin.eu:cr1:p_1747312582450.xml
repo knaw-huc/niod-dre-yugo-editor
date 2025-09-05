@@ -38,10 +38,10 @@
                 <Element name="authorisedForm" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" Multilingual="true" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                     <Documentation>Enter ONLY ONE authorized form of name EVEN IF YOU SEE A + SIGN (do not use it). This is the authorized form of the name, based on the language and script of the authority record (Section 5.1 of the ISAAR (CPF) Second Edition guidelines) </Documentation>
                 </Element>
-                <Element name="parallelForms" ValueScheme="string" CardinalityMin="1" CardinalityMax="unbounded" Multilingual="true" cue:DisplayPriority="2" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+                <Element name="parallelForms" ValueScheme="string" CardinalityMin="0" CardinalityMax="unbounded" Multilingual="true" cue:DisplayPriority="2" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
                     <Documentation>Used for translations. Add the forms of the authorized name in other languages. You can add as many as you want (preferably limit to: fr, bos, hrv, srp), but ALWAYS assign a language tag (even if the script is not added for now)..</Documentation>
                 </Element>
-                <Element name="otherForms" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" Multilingual="true">
+                <Element name="otherForms" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" Multilingual="true">
                     <Documentation>Used for other forms of the name (i.e., not translations but alternative forms, e.g., acronyms, nicknames, etc.). You can assign as many as you want. It's up to you to decide if the alternative form will or not be in other languages, but ALWAYS assign a language tag even if it is English.</Documentation>
                 </Element>
             </Component>
@@ -102,7 +102,7 @@
         </Component>
         <Component name="RelationshipArea" CardinalityMin="0" CardinalityMax="1">
             <Component name="ToGroup" CardinalityMin="0" CardinalityMax="1">
-                <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="1" CardinalityMax="1">
+                <Component name="Relationship" ComponentRef="clarin.eu:cr1:c_1721373444010" CardinalityMin="1" CardinalityMax="unbounded">
                     <Element name="to" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
                     <Element name="category" ValueScheme="string" CardinalityMin="1" CardinalityMax="1"/>
                     <Element name="description" ValueScheme="string" CardinalityMin="0" CardinalityMax="1"/>
